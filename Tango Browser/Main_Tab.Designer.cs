@@ -36,10 +36,11 @@
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.starThisPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.starredToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printThisPageToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.inspectElementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.Address_textBox = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.chromiumBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
@@ -48,6 +49,7 @@
             // 
             // but_Home
             // 
+            this.but_Home.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_Home.Location = new System.Drawing.Point(3, 2);
             this.but_Home.Name = "but_Home";
             this.but_Home.Size = new System.Drawing.Size(75, 35);
@@ -58,6 +60,7 @@
             // 
             // but_back
             // 
+            this.but_back.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_back.Location = new System.Drawing.Point(84, 2);
             this.but_back.Name = "but_back";
             this.but_back.Size = new System.Drawing.Size(45, 35);
@@ -68,6 +71,7 @@
             // 
             // but_forward
             // 
+            this.but_forward.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_forward.Location = new System.Drawing.Point(134, 2);
             this.but_forward.Name = "but_forward";
             this.but_forward.Size = new System.Drawing.Size(45, 35);
@@ -79,6 +83,7 @@
             // but_go
             // 
             this.but_go.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.but_go.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_go.Location = new System.Drawing.Point(876, 2);
             this.but_go.Name = "but_go";
             this.but_go.Size = new System.Drawing.Size(64, 35);
@@ -90,6 +95,7 @@
             // but_refresh
             // 
             this.but_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.but_refresh.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_refresh.Location = new System.Drawing.Point(946, 2);
             this.but_refresh.Name = "but_refresh";
             this.but_refresh.Size = new System.Drawing.Size(100, 35);
@@ -114,6 +120,7 @@
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.historyToolStripMenuItem,
+            this.starThisPageToolStripMenuItem,
             this.starredToolStripMenuItem,
             this.printThisPageToolStripMenuItem1,
             this.inspectElementToolStripMenuItem,
@@ -129,11 +136,18 @@
             this.historyToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
             this.historyToolStripMenuItem.Text = "History";
             // 
+            // starThisPageToolStripMenuItem
+            // 
+            this.starThisPageToolStripMenuItem.Name = "starThisPageToolStripMenuItem";
+            this.starThisPageToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
+            this.starThisPageToolStripMenuItem.Text = "Star this page";
+            // 
             // starredToolStripMenuItem
             // 
             this.starredToolStripMenuItem.Name = "starredToolStripMenuItem";
             this.starredToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
             this.starredToolStripMenuItem.Text = "Starred";
+            this.starredToolStripMenuItem.Click += new System.EventHandler(this.starredToolStripMenuItem_Click);
             // 
             // printThisPageToolStripMenuItem1
             // 
@@ -142,18 +156,18 @@
             this.printThisPageToolStripMenuItem1.Text = "Print this Page";
             this.printThisPageToolStripMenuItem1.Click += new System.EventHandler(this.printThisPageToolStripMenuItem1_Click);
             // 
-            // aboutToolStripMenuItem1
-            // 
-            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(235, 32);
-            this.aboutToolStripMenuItem1.Text = "About";
-            // 
             // inspectElementToolStripMenuItem
             // 
             this.inspectElementToolStripMenuItem.Name = "inspectElementToolStripMenuItem";
             this.inspectElementToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
             this.inspectElementToolStripMenuItem.Text = "Inspect Element";
             this.inspectElementToolStripMenuItem.Click += new System.EventHandler(this.inspectElementToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem1
+            // 
+            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(235, 32);
+            this.aboutToolStripMenuItem1.Text = "About";
             // 
             // Address_textBox
             // 
@@ -177,11 +191,13 @@
             this.chromiumBrowser.Size = new System.Drawing.Size(1128, 407);
             this.chromiumBrowser.TabIndex = 7;
             this.chromiumBrowser.FrameLoadEnd += new System.EventHandler<CefSharp.FrameLoadEndEventArgs>(this.chromiumBrowser_FrameLoadEnd);
+            this.chromiumBrowser.TitleChanged += new System.EventHandler<CefSharp.TitleChangedEventArgs>(this.chromiumBrowser_TitleChanged);
             // 
             // Main_Tab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1131, 450);
             this.Controls.Add(this.chromiumBrowser);
             this.Controls.Add(this.Address_textBox);
@@ -195,6 +211,7 @@
             this.MainMenuStrip = this.Menu;
             this.Name = "Main_Tab";
             this.Text = "Main_Tab";
+            this.Load += new System.EventHandler(this.Main_Tab_Load);
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.ResumeLayout(false);
@@ -219,5 +236,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private CefSharp.WinForms.ChromiumWebBrowser chromiumBrowser;
         private System.Windows.Forms.ToolStripMenuItem inspectElementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem starThisPageToolStripMenuItem;
     }
 }

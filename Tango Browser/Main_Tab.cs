@@ -95,5 +95,20 @@ namespace Tango_Browser
         {
             chromiumBrowser.ShowDevTools();
         }
+
+        private void starredToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_Tab_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chromiumBrowser_TitleChanged(object sender, TitleChangedEventArgs e)
+        {
+            Text = e.Title;
+        }
     }
 }
