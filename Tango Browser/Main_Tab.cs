@@ -10,15 +10,19 @@ using System.Windows.Forms;
 using EasyTabs;
 using CefSharp.WinForms;
 using CefSharp;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using CefSharp.Wpf;
 
 namespace Tango_Browser
 {
     public partial class Main_Tab : Form
     {
-        ChromiumWebBrowser chromeBrowser;
+        MongoClient dbClient = new MongoClient("mongodb://localhost:27017/");
         public Main_Tab()
         {
             InitializeComponent();
+            
             chromiumBrowser.Load("www.google.com");
             Address_textBox.Text = chromiumBrowser.Address;
             TextBox.CheckForIllegalCrossThreadCalls = false;
@@ -64,6 +68,14 @@ namespace Tango_Browser
         private void chromiumBrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
             Address_textBox.Text = chromiumBrowser.Address;
+            IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
+            var hist = db.GetCollection<BsonDocument>("History");
+            var doc = new BsonDocument
+            {
+                {"url", chromiumBrowser.Address},
+                { "user_id","1"}
+            };
+            hist.InsertOne(doc);
         }
 
         private void but_back_Click(object sender, EventArgs e)
@@ -98,7 +110,9 @@ namespace Tango_Browser
 
         private void starredToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Starred starred=new Starred();
+            starred.Tag = this;
+            starred.Show(this);
         }
 
         private void Main_Tab_Load(object sender, EventArgs e)
@@ -109,6 +123,32 @@ namespace Tango_Browser
         private void chromiumBrowser_TitleChanged(object sender, TitleChangedEventArgs e)
         {
             Text = e.Title;
+        }
+
+        private void historyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            History history = new History();
+            history.Tag = this;
+            history.Show(this);
+            
+        }
+
+        private void chromiumBrowser_AddressChanged(object sender, AddressChangedEventArgs e)
+        {
+           
+        }
+
+        private void starThisPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
+            var star = db.GetCollection<BsonDocument>("Starred");
+            var doc = new BsonDocument
+            {
+                {"url", chromiumBrowser.Address},
+                { "user_id","1"}
+            };
+            star.InsertOne(doc);
+            MessageBox.Show("Page is Starred");
         }
     }
 }

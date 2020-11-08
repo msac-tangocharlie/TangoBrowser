@@ -135,18 +135,20 @@
             this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
             this.historyToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
             this.historyToolStripMenuItem.Text = "History";
+            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
             // 
             // starThisPageToolStripMenuItem
             // 
             this.starThisPageToolStripMenuItem.Name = "starThisPageToolStripMenuItem";
             this.starThisPageToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
             this.starThisPageToolStripMenuItem.Text = "Star this page";
+            this.starThisPageToolStripMenuItem.Click += new System.EventHandler(this.starThisPageToolStripMenuItem_Click);
             // 
             // starredToolStripMenuItem
             // 
             this.starredToolStripMenuItem.Name = "starredToolStripMenuItem";
             this.starredToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
-            this.starredToolStripMenuItem.Text = "Starred";
+            this.starredToolStripMenuItem.Text = "Starred Pages";
             this.starredToolStripMenuItem.Click += new System.EventHandler(this.starredToolStripMenuItem_Click);
             // 
             // printThisPageToolStripMenuItem1
@@ -191,6 +193,7 @@
             this.chromiumBrowser.Size = new System.Drawing.Size(1128, 407);
             this.chromiumBrowser.TabIndex = 7;
             this.chromiumBrowser.FrameLoadEnd += new System.EventHandler<CefSharp.FrameLoadEndEventArgs>(this.chromiumBrowser_FrameLoadEnd);
+            this.chromiumBrowser.AddressChanged += new System.EventHandler<CefSharp.AddressChangedEventArgs>(this.chromiumBrowser_AddressChanged);
             this.chromiumBrowser.TitleChanged += new System.EventHandler<CefSharp.TitleChangedEventArgs>(this.chromiumBrowser_TitleChanged);
             // 
             // Main_Tab
