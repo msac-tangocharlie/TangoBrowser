@@ -13,6 +13,7 @@ using CefSharp;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using CefSharp.Wpf;
+using CefSharp.DevTools.Network;
 
 namespace Tango_Browser
 {
@@ -22,11 +23,13 @@ namespace Tango_Browser
         public Main_Tab()
         {
             InitializeComponent();
-            
+
 
             // Add the --enable-media-stream flag
             
+           
             chromiumBrowser.Load("www.google.com");
+            
             Address_textBox.Text = chromiumBrowser.Address;
             TextBox.CheckForIllegalCrossThreadCalls = false;
 
@@ -50,6 +53,7 @@ namespace Tango_Browser
             else if (e.KeyData == Keys.Enter)
             {
                 chromiumBrowser.Load("https://www.google.com/search?q=" + Address_textBox.Text.Replace(" ", "+"));
+                
 
             }
         }
@@ -79,6 +83,12 @@ namespace Tango_Browser
                 { "user_id","1"}
             };
             hist.InsertOne(doc);
+            /*var mngr = Cef.GetGlobalCookieManager();
+            CefSharp.Cookie Ac = new CefSharp.Cookie();
+            Ac.HttpOnly = true;
+            Ac.Name = ".ASPXAUTH";
+            Ac.Value = "";
+            mngr.SetCookieAsync(chromiumBrowser.Address, Ac);*/
         }
 
         private void but_back_Click(object sender, EventArgs e)
@@ -142,6 +152,23 @@ namespace Tango_Browser
             };
             star.InsertOne(doc);
             MessageBox.Show("Page is Starred");
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            chromiumBrowser.Back();
+        }
+
+        
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            chromiumBrowser.Forward();
+        }
+
+        private void Main_Tab_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
