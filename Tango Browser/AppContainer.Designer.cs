@@ -36,8 +36,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "AppContainer";
-            this.Text = "Form1";
+            this.Text = "Tango Browser";
+            
             this.ResumeLayout(false);
+
+            
 
         }
 

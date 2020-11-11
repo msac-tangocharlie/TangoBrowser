@@ -19,19 +19,24 @@ namespace Tango_Browser
             InitializeComponent();
             CefSharp.WinForms.CefSettings settings = new CefSharp.WinForms.CefSettings();
             settings.CefCommandLineArgs.Add("enable-media-stream", "1");
-
+            settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
             Cef.Initialize(settings);
             AeroPeekEnabled = true;
             TabRenderer = new ChromeTabRenderer(this);
 
         }
+
         public override TitleBarTab CreateTab()
         {
             return new TitleBarTab(this)
             {
                 Content = new Main_Tab
                 {
-                    Text = "New Tab"
+
+                    Text = "New Tab",
+                    
+                    
+
                 }
             };
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Tab));
             this.but_Home = new System.Windows.Forms.Button();
             this.but_back = new System.Windows.Forms.Button();
             this.but_forward = new System.Windows.Forms.Button();
@@ -110,9 +111,9 @@
             this.Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem});
-            this.Menu.Location = new System.Drawing.Point(1049, 0);
+            this.Menu.Location = new System.Drawing.Point(1047, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(82, 450);
+            this.Menu.Size = new System.Drawing.Size(84, 450);
             this.Menu.TabIndex = 5;
             this.Menu.Text = "Menu";
             // 
@@ -209,10 +210,12 @@
             this.Controls.Add(this.but_back);
             this.Controls.Add(this.but_Home);
             this.Controls.Add(this.Menu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Menu;
             this.Name = "Main_Tab";
             this.Text = "Main_Tab";
+            this.Load += new System.EventHandler(this.Main_Tab_Load);
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.ResumeLayout(false);
@@ -235,8 +238,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.TextBox Address_textBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private CefSharp.WinForms.ChromiumWebBrowser chromiumBrowser;
         private System.Windows.Forms.ToolStripMenuItem inspectElementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem starThisPageToolStripMenuItem;
+        private CefSharp.WinForms.ChromiumWebBrowser chromiumBrowser;
     }
 }
