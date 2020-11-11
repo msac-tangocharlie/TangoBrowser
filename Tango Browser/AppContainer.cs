@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EasyTabs;
+using CefSharp;
 
 namespace Tango_Browser
 {
@@ -16,9 +17,13 @@ namespace Tango_Browser
         public AppContainer()
         {
             InitializeComponent();
-            AeroPeekEnabled = true;
+            CefSharp.WinForms.CefSettings settings = new CefSharp.WinForms.CefSettings();
+            settings.CefCommandLineArgs.Add("enable-media-stream", "1");
 
+            Cef.Initialize(settings);
+            AeroPeekEnabled = true;
             TabRenderer = new ChromeTabRenderer(this);
+
         }
         public override TitleBarTab CreateTab()
         {

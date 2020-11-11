@@ -191,9 +191,8 @@
             this.chromiumBrowser.Location = new System.Drawing.Point(3, 43);
             this.chromiumBrowser.Name = "chromiumBrowser";
             this.chromiumBrowser.Size = new System.Drawing.Size(1128, 407);
-            this.chromiumBrowser.TabIndex = 7;
+            this.chromiumBrowser.TabIndex = 0;
             this.chromiumBrowser.FrameLoadEnd += new System.EventHandler<CefSharp.FrameLoadEndEventArgs>(this.chromiumBrowser_FrameLoadEnd);
-            this.chromiumBrowser.AddressChanged += new System.EventHandler<CefSharp.AddressChangedEventArgs>(this.chromiumBrowser_AddressChanged);
             this.chromiumBrowser.TitleChanged += new System.EventHandler<CefSharp.TitleChangedEventArgs>(this.chromiumBrowser_TitleChanged);
             // 
             // Main_Tab
@@ -214,7 +213,6 @@
             this.MainMenuStrip = this.Menu;
             this.Name = "Main_Tab";
             this.Text = "Main_Tab";
-            this.Load += new System.EventHandler(this.Main_Tab_Load);
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
             this.ResumeLayout(false);

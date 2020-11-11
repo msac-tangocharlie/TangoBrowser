@@ -23,6 +23,9 @@ namespace Tango_Browser
         {
             InitializeComponent();
             
+
+            // Add the --enable-media-stream flag
+            
             chromiumBrowser.Load("www.google.com");
             Address_textBox.Text = chromiumBrowser.Address;
             TextBox.CheckForIllegalCrossThreadCalls = false;
@@ -115,11 +118,6 @@ namespace Tango_Browser
             starred.Show(this);
         }
 
-        private void Main_Tab_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void chromiumBrowser_TitleChanged(object sender, TitleChangedEventArgs e)
         {
             Text = e.Title;
@@ -131,11 +129,6 @@ namespace Tango_Browser
             history.Tag = this;
             history.Show(this);
             
-        }
-
-        private void chromiumBrowser_AddressChanged(object sender, AddressChangedEventArgs e)
-        {
-           
         }
 
         private void starThisPageToolStripMenuItem_Click(object sender, EventArgs e)
