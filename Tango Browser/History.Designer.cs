@@ -81,7 +81,6 @@
             this.histList.TabIndex = 4;
             this.histList.UseCompatibleStateImageBehavior = false;
             this.histList.View = System.Windows.Forms.View.List;
-            this.histList.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
             // 
             // History
             // 
