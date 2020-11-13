@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CefSharp;
+using CefSharp.WinForms;
 
 namespace Tango_Browser
 {
@@ -16,6 +17,15 @@ namespace Tango_Browser
         [STAThread]
         static void Main()
         {
+            CefSharp.WinForms.CefSettings settings = new CefSharp.WinForms.CefSettings();
+            settings.CefCommandLineArgs.Add("enable-media-stream", "1");
+            settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
+            /*settings.DisableGpuAcceleration();*/
+            
+            var _webViewSettings = new CefSettings();
+            _webViewSettings.UserAgent = string.Format(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{0} Mobile Safari/537.36", Cef.ChromiumVersion);
+            Cef.Initialize(settings);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AppContainer container = new AppContainer();
@@ -24,7 +34,7 @@ namespace Tango_Browser
                     {
                         Content = new Main_Tab
                         {
-                            Text = "New Tab.."
+                            Text = "New Tab"
                         }
                     }
                 );
@@ -32,6 +42,7 @@ namespace Tango_Browser
             TitleBarTabsApplicationContext applicationContext = new TitleBarTabsApplicationContext();
             applicationContext.Start(container);
             Application.Run(applicationContext);
+            
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Tango_Browser
             db.DropCollection("History");
             MessageBox.Show("History Cleared");
             histList.Items.Clear();
-            
+
         }
     }
 }
