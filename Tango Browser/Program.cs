@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
+using System.Drawing;
 
 namespace Tango_Browser
 {
@@ -20,8 +21,8 @@ namespace Tango_Browser
             CefSharp.WinForms.CefSettings settings = new CefSharp.WinForms.CefSettings();
             settings.CefCommandLineArgs.Add("enable-media-stream", "1");
             settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
-            /*settings.DisableGpuAcceleration();*/
-            
+            settings.DisableGpuAcceleration();
+
             var _webViewSettings = new CefSettings();
             _webViewSettings.UserAgent = string.Format(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{0} Mobile Safari/537.36", Cef.ChromiumVersion);
@@ -34,7 +35,8 @@ namespace Tango_Browser
                     {
                         Content = new Main_Tab
                         {
-                            Text = "New Tab"
+                            Text = "New Tab",
+                            Icon= new Icon("DefaultIcon.ico")
                         }
                     }
                 );
