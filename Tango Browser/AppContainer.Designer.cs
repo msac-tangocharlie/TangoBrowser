@@ -1,4 +1,6 @@
-﻿namespace Tango_Browser
+﻿using System.Drawing;
+
+namespace Tango_Browser
 {
     partial class AppContainer
     {
@@ -6,6 +8,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private object resources;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -38,7 +41,9 @@
             
             this.Name = "AppContainer";
             this.Text = "Tango Browser";
-            
+            this.Icon = new Icon("DefaultIcon.ico");
+
+
             this.ResumeLayout(false);
 
             

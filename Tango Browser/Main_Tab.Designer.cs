@@ -63,9 +63,9 @@
             this.Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem});
-            this.Menu.Location = new System.Drawing.Point(942, 0);
+            this.Menu.Location = new System.Drawing.Point(1060, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(158, 450);
+            this.Menu.Size = new System.Drawing.Size(40, 450);
             this.Menu.TabIndex = 5;
             this.Menu.Text = "Menu";
             this.Menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Menu_ItemClicked);
@@ -83,7 +83,7 @@
             this.menuToolStripMenuItem.Image = global::Tango_Browser.Properties.Resources.menu;
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Padding = new System.Windows.Forms.Padding(5, 7, 5, 5);
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(143, 36);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(27, 36);
             // 
             // historyToolStripMenuItem
             // 

@@ -40,6 +40,7 @@ namespace Tango_Browser
                 Content = new Main_Tab
                 {
                     Text = "New Tab",
+                    
                 }
             };
         }
