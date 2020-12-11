@@ -38,14 +38,6 @@ namespace Tango_Browser
             TextBox.CheckForIllegalCrossThreadCalls = false;
 
         }
-        
-        protected TitleBarTabs ParentsTabs
-        {
-            get
-            {
-                return (ParentForm as TitleBarTabs);
-            }
-        }
 
         private void Address_textBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -61,45 +53,10 @@ namespace Tango_Browser
             faviconLoaded = false;
         }
 
-        private void but_go_Click(object sender, EventArgs e)
-        {
-            if ( Address_textBox.Text.Contains(".") && !Address_textBox.Text.Contains(" ") && Address_textBox.Text.Length > 0)
-            {
-                chromiumBrowser.Load(Address_textBox.Text);
-
-            }
-            else
-            {
-                chromiumBrowser.Load("https://www.google.com/search?q=" + Address_textBox.Text.Replace(" ", "+"));
-
-            }
-            faviconLoaded = false;
-        }
-
         private void chromiumBrowser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
             Address_textBox.Text = chromiumBrowser.Address;
             Pic_load.Image = Resources.refresh;
-            
-        }
-
-        private void but_back_Click(object sender, EventArgs e)
-        {
-            if(chromiumBrowser.CanGoBack) chromiumBrowser.Back();
-        }
-
-        private void but_forward_Click(object sender, EventArgs e)
-        {
-            if(chromiumBrowser.CanGoForward) chromiumBrowser.Forward();
-        }
-
-        private void but_Home_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void but_refresh_Click(object sender, EventArgs e)
-        {
             
         }
 
@@ -146,9 +103,6 @@ namespace Tango_Browser
             /* History history = new History();
              history.Tag = this;
              history.Show(this);*/
-
-
-
             AppContainer container = new AppContainer();
             container.Tabs.Add(
                     new TitleBarTab(container)
@@ -163,18 +117,6 @@ namespace Tango_Browser
 
             TitleBarTabsApplicationContext applicationContext = new TitleBarTabsApplicationContext();
             applicationContext.Start(container);
-
-
-
-        }
-        private void pictureBox1_DoubleClick(object sender, EventArgs e)
-        {
-            chromiumBrowser.Back();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            chromiumBrowser.Forward();
         }
 
         private void Main_Tab_Load(object sender, EventArgs e)
@@ -253,11 +195,6 @@ namespace Tango_Browser
         private void Pic_forward_Click(object sender, EventArgs e)
         {
             if (chromiumBrowser.CanGoBack) chromiumBrowser.Forward();
-        }
-
-        private void chromiumBrowser_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
-        {
-
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
