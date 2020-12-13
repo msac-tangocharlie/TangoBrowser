@@ -23,7 +23,7 @@ namespace Tango_Browser
     public partial class Main_Tab : Form
     {
         MongoClient dbClient = new MongoClient("mongodb://localhost:27017/");
-        
+
         public Main_Tab()
         {
             InitializeComponent();
@@ -31,9 +31,9 @@ namespace Tango_Browser
 
             // Add the --enable-media-stream flag
 
-            
+
             chromiumBrowser.Load("about:blank");
-            
+
             Address_textBox.Text = chromiumBrowser.Address;
             TextBox.CheckForIllegalCrossThreadCalls = false;
 
@@ -57,7 +57,7 @@ namespace Tango_Browser
         {
             Address_textBox.Text = chromiumBrowser.Address;
             Pic_load.Image = Resources.refresh;
-            
+
         }
 
         private void printThisPageToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -72,18 +72,18 @@ namespace Tango_Browser
 
         private void starredToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Starred starred=new Starred();
+            Starred starred = new Starred();
             starred.Tag = this;
             starred.Show(this);
         }
-        
+
         private void chromiumBrowser_TitleChanged(object sender, TitleChangedEventArgs e)
         {
-            
+
             if (Text != e.Title)
             {
                 Text = e.Title;
-                if (Text!="about:blank")
+                if (Text != "about:blank")
                 {
                     IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
                     var hist = db.GetCollection<BsonDocument>("History");
@@ -95,7 +95,7 @@ namespace Tango_Browser
                     hist.InsertOne(doc);
                 }
             }
-            
+
         }
 
         private void historyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -202,7 +202,7 @@ namespace Tango_Browser
             chromiumBrowser.Load("www.google.com");
         }
 
-       
+
 
         private void Pic_back_MouseEnter(object sender, EventArgs e)
         {
@@ -270,6 +270,29 @@ namespace Tango_Browser
         private void Menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             menuToolStripMenuItem.ShowDropDown();
+        }
+
+        private void backgorundToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDlg = new ColorDialog();
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+            {
+                Properties.Settings.Default.FormBackGround = colorDlg.Color;
+                Properties.Settings.Default.Save();
+                this.BackColor = colorDlg.Color;
+                Menu.BackColor = colorDlg.Color;
+               
+                    IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
+                    var colDlg = db.GetCollection<BsonDocument>("Background");
+                    var doc = new BsonDocument
+                        {
+                           {"url", chromiumBrowser.Address},
+                           { "user_id","1"}
+                         };
+                    colDlg.InsertOne(doc);
+               
+
+            }
         }
     }
 }
