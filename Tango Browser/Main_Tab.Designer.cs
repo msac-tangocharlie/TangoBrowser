@@ -37,10 +37,10 @@
             this.inspectElementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.backgorundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findInPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Address_textBox = new System.Windows.Forms.TextBox();
             this.chromiumBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Pic_load = new System.Windows.Forms.PictureBox();
             this.Pic_pin = new System.Windows.Forms.PictureBox();
             this.Pic_home = new System.Windows.Forms.PictureBox();
@@ -49,6 +49,13 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.findbox = new System.Windows.Forms.GroupBox();
+            this.find_next = new System.Windows.Forms.Button();
+            this.find_prev = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.find_label = new System.Windows.Forms.Label();
+            this.but_Find = new System.Windows.Forms.Button();
+            this.find_textbox = new System.Windows.Forms.TextBox();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_load)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_pin)).BeginInit();
@@ -58,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.findbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // Menu
@@ -82,7 +90,8 @@
             this.printThisPageToolStripMenuItem1,
             this.inspectElementToolStripMenuItem,
             this.aboutToolStripMenuItem1,
-            this.backgorundToolStripMenuItem});
+            this.backgorundToolStripMenuItem,
+            this.findInPageToolStripMenuItem});
             this.menuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuToolStripMenuItem.Image = global::Tango_Browser.Properties.Resources.menu;
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
@@ -129,6 +138,13 @@
             this.backgorundToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
             this.backgorundToolStripMenuItem.Text = "Change Color";
             this.backgorundToolStripMenuItem.Click += new System.EventHandler(this.backgorundToolStripMenuItem_Click);
+            // 
+            // findInPageToolStripMenuItem
+            // 
+            this.findInPageToolStripMenuItem.Name = "findInPageToolStripMenuItem";
+            this.findInPageToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
+            this.findInPageToolStripMenuItem.Text = "Find in Page";
+            this.findInPageToolStripMenuItem.Click += new System.EventHandler(this.findInPageToolStripMenuItem_Click);
             // 
             // Address_textBox
             // 
@@ -260,12 +276,87 @@
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
+            // findbox
+            // 
+            this.findbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.findbox.Controls.Add(this.find_next);
+            this.findbox.Controls.Add(this.find_prev);
+            this.findbox.Controls.Add(this.button1);
+            this.findbox.Controls.Add(this.find_label);
+            this.findbox.Controls.Add(this.but_Find);
+            this.findbox.Controls.Add(this.find_textbox);
+            this.findbox.Location = new System.Drawing.Point(850, 49);
+            this.findbox.Name = "findbox";
+            this.findbox.Size = new System.Drawing.Size(249, 145);
+            this.findbox.TabIndex = 16;
+            this.findbox.TabStop = false;
+            this.findbox.Text = "Find in Page";
+            this.findbox.Visible = false;
+            // 
+            // find_next
+            // 
+            this.find_next.Location = new System.Drawing.Point(196, 103);
+            this.find_next.Name = "find_next";
+            this.find_next.Size = new System.Drawing.Size(34, 29);
+            this.find_next.TabIndex = 5;
+            this.find_next.Text = ">";
+            this.find_next.UseVisualStyleBackColor = true;
+            this.find_next.Click += new System.EventHandler(this.find_next_Click);
+            // 
+            // find_prev
+            // 
+            this.find_prev.Location = new System.Drawing.Point(153, 103);
+            this.find_prev.Name = "find_prev";
+            this.find_prev.Size = new System.Drawing.Size(37, 29);
+            this.find_prev.TabIndex = 4;
+            this.find_prev.Text = "<";
+            this.find_prev.UseVisualStyleBackColor = true;
+            this.find_prev.Click += new System.EventHandler(this.find_prev_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(210, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(33, 29);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // find_label
+            // 
+            this.find_label.AutoSize = true;
+            this.find_label.Location = new System.Drawing.Point(17, 33);
+            this.find_label.Name = "find_label";
+            this.find_label.Size = new System.Drawing.Size(48, 17);
+            this.find_label.TabIndex = 2;
+            this.find_label.Text = "Value:";
+            // 
+            // but_Find
+            // 
+            this.but_Find.Location = new System.Drawing.Point(20, 103);
+            this.but_Find.Name = "but_Find";
+            this.but_Find.Size = new System.Drawing.Size(101, 29);
+            this.but_Find.TabIndex = 1;
+            this.but_Find.Text = "Find";
+            this.but_Find.UseVisualStyleBackColor = true;
+            this.but_Find.Click += new System.EventHandler(this.but_Find_Click);
+            // 
+            // find_textbox
+            // 
+            this.find_textbox.Location = new System.Drawing.Point(20, 63);
+            this.find_textbox.Name = "find_textbox";
+            this.find_textbox.Size = new System.Drawing.Size(210, 22);
+            this.find_textbox.TabIndex = 0;
+            this.find_textbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.find_textbox_KeyDown);
+            // 
             // Main_Tab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Tango_Browser.Properties.Settings.Default.FormBackGround;
             this.ClientSize = new System.Drawing.Size(1100, 450);
+            this.Controls.Add(this.findbox);
             this.Controls.Add(this.Pic_load);
             this.Controls.Add(this.Pic_pin);
             this.Controls.Add(this.Address_textBox);
@@ -294,6 +385,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.findbox.ResumeLayout(false);
+            this.findbox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,6 +412,13 @@
         private System.Windows.Forms.PictureBox Pic_load;
         private System.Windows.Forms.ToolStripMenuItem backgorundToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ToolStripMenuItem findInPageToolStripMenuItem;
+        private System.Windows.Forms.GroupBox findbox;
+        private System.Windows.Forms.Label find_label;
+        private System.Windows.Forms.Button but_Find;
+        private System.Windows.Forms.TextBox find_textbox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button find_next;
+        private System.Windows.Forms.Button find_prev;
     }
 }
