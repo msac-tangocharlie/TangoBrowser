@@ -17,6 +17,8 @@ using CefSharp.DevTools.Network;
 using System.IO;
 using System.Net;
 using Tango_Browser.Properties;
+using CefSharp.Example;
+using CefSharp.Example.Handlers;
 
 namespace Tango_Browser
 {
@@ -35,6 +37,7 @@ namespace Tango_Browser
             // Add the --enable-media-stream flag
 
             chromiumBrowser.MenuHandler = new MyCustomMenuHandler();
+            chromiumBrowser.DownloadHandler = new DownloadHandler();
 
             chromiumBrowser.Load("about:blank");
 
@@ -107,6 +110,8 @@ namespace Tango_Browser
             /* History history = new History();
              history.Tag = this;
              history.Show(this);*/
+            
+
             AppContainer container = new AppContainer();
             container.Tabs.Add(
                     new TitleBarTab(container)
