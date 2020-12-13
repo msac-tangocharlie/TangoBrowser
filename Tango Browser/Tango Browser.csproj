@@ -229,6 +229,7 @@
     <Compile Include="AppContainer.Designer.cs">
       <DependentUpon>AppContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="DownloadHandler.cs" />
     <Compile Include="History.cs">
       <SubType>Form</SubType>
     </Compile>
