@@ -39,6 +39,8 @@
             this.backgorundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Address_textBox = new System.Windows.Forms.TextBox();
             this.chromiumBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Pic_load = new System.Windows.Forms.PictureBox();
             this.Pic_pin = new System.Windows.Forms.PictureBox();
             this.Pic_home = new System.Windows.Forms.PictureBox();
@@ -47,7 +49,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_load)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_pin)).BeginInit();
@@ -62,14 +63,12 @@
             // Menu
             // 
             this.Menu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Menu.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem});
-            this.Menu.Location = new System.Drawing.Point(1197, 0);
+            this.Menu.Location = new System.Drawing.Point(1060, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.Menu.Size = new System.Drawing.Size(41, 562);
+            this.Menu.Size = new System.Drawing.Size(40, 450);
             this.Menu.TabIndex = 5;
             this.Menu.Text = "Menu";
             this.Menu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Menu_ItemClicked);
@@ -88,47 +87,47 @@
             this.menuToolStripMenuItem.Image = global::Tango_Browser.Properties.Resources.menu;
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Padding = new System.Windows.Forms.Padding(5, 7, 5, 5);
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(26, 36);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(27, 36);
             // 
             // historyToolStripMenuItem
             // 
             this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(290, 40);
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
             this.historyToolStripMenuItem.Text = "History";
             this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
             // 
             // starredToolStripMenuItem
             // 
             this.starredToolStripMenuItem.Name = "starredToolStripMenuItem";
-            this.starredToolStripMenuItem.Size = new System.Drawing.Size(290, 40);
+            this.starredToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
             this.starredToolStripMenuItem.Text = "Pinned Pages";
             this.starredToolStripMenuItem.Click += new System.EventHandler(this.starredToolStripMenuItem_Click);
             // 
             // printThisPageToolStripMenuItem1
             // 
             this.printThisPageToolStripMenuItem1.Name = "printThisPageToolStripMenuItem1";
-            this.printThisPageToolStripMenuItem1.Size = new System.Drawing.Size(290, 40);
+            this.printThisPageToolStripMenuItem1.Size = new System.Drawing.Size(235, 32);
             this.printThisPageToolStripMenuItem1.Text = "Print this Page";
             this.printThisPageToolStripMenuItem1.Click += new System.EventHandler(this.printThisPageToolStripMenuItem1_Click);
             // 
             // inspectElementToolStripMenuItem
             // 
             this.inspectElementToolStripMenuItem.Name = "inspectElementToolStripMenuItem";
-            this.inspectElementToolStripMenuItem.Size = new System.Drawing.Size(290, 40);
+            this.inspectElementToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
             this.inspectElementToolStripMenuItem.Text = "Inspect Element";
             this.inspectElementToolStripMenuItem.Click += new System.EventHandler(this.inspectElementToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(290, 40);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(235, 32);
             this.aboutToolStripMenuItem1.Text = "About";
             // 
             // backgorundToolStripMenuItem
             // 
             this.backgorundToolStripMenuItem.Name = "backgorundToolStripMenuItem";
-            this.backgorundToolStripMenuItem.Size = new System.Drawing.Size(290, 40);
-            this.backgorundToolStripMenuItem.Text = "Backgorund";
+            this.backgorundToolStripMenuItem.Size = new System.Drawing.Size(235, 32);
+            this.backgorundToolStripMenuItem.Text = "Change Color";
             this.backgorundToolStripMenuItem.Click += new System.EventHandler(this.backgorundToolStripMenuItem_Click);
             // 
             // Address_textBox
@@ -138,10 +137,10 @@
             this.Address_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.Address_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Address_textBox.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Address_textBox.Location = new System.Drawing.Point(196, 11);
-            this.Address_textBox.Margin = new System.Windows.Forms.Padding(34, 4, 3, 4);
+            this.Address_textBox.Location = new System.Drawing.Point(174, 9);
+            this.Address_textBox.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.Address_textBox.Name = "Address_textBox";
-            this.Address_textBox.Size = new System.Drawing.Size(865, 34);
+            this.Address_textBox.Size = new System.Drawing.Size(769, 29);
             this.Address_textBox.TabIndex = 6;
             this.Address_textBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Address_textBox_KeyDown);
             // 
@@ -151,10 +150,9 @@
             this.chromiumBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chromiumBrowser.Location = new System.Drawing.Point(3, 58);
-            this.chromiumBrowser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chromiumBrowser.Location = new System.Drawing.Point(-2, 46);
             this.chromiumBrowser.Name = "chromiumBrowser";
-            this.chromiumBrowser.Size = new System.Drawing.Size(1234, 505);
+            this.chromiumBrowser.Size = new System.Drawing.Size(1102, 404);
             this.chromiumBrowser.TabIndex = 0;
             this.chromiumBrowser.FrameLoadStart += new System.EventHandler<CefSharp.FrameLoadStartEventArgs>(this.chromiumBrowser_FrameLoadStart);
             this.chromiumBrowser.FrameLoadEnd += new System.EventHandler<CefSharp.FrameLoadEndEventArgs>(this.chromiumBrowser_FrameLoadEnd);
@@ -165,10 +163,9 @@
             // 
             this.Pic_load.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Pic_load.Image = global::Tango_Browser.Properties.Resources.refresh;
-            this.Pic_load.Location = new System.Drawing.Point(1092, 10);
-            this.Pic_load.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Pic_load.Location = new System.Drawing.Point(971, 8);
             this.Pic_load.Name = "Pic_load";
-            this.Pic_load.Size = new System.Drawing.Size(34, 38);
+            this.Pic_load.Size = new System.Drawing.Size(30, 30);
             this.Pic_load.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pic_load.TabIndex = 15;
             this.Pic_load.TabStop = false;
@@ -178,10 +175,9 @@
             // 
             this.Pic_pin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Pic_pin.Image = global::Tango_Browser.Properties.Resources.pin;
-            this.Pic_pin.Location = new System.Drawing.Point(1137, 10);
-            this.Pic_pin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Pic_pin.Location = new System.Drawing.Point(1011, 8);
             this.Pic_pin.Name = "Pic_pin";
-            this.Pic_pin.Size = new System.Drawing.Size(35, 39);
+            this.Pic_pin.Size = new System.Drawing.Size(31, 31);
             this.Pic_pin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pic_pin.TabIndex = 14;
             this.Pic_pin.TabStop = false;
@@ -191,10 +187,9 @@
             // 
             this.Pic_home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pic_home.Image = global::Tango_Browser.Properties.Resources.Home;
-            this.Pic_home.Location = new System.Drawing.Point(24, 6);
-            this.Pic_home.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Pic_home.Location = new System.Drawing.Point(21, 5);
             this.Pic_home.Name = "Pic_home";
-            this.Pic_home.Size = new System.Drawing.Size(39, 44);
+            this.Pic_home.Size = new System.Drawing.Size(35, 35);
             this.Pic_home.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pic_home.TabIndex = 12;
             this.Pic_home.TabStop = false;
@@ -207,10 +202,9 @@
             this.Pic_forward.BackgroundImage = global::Tango_Browser.Properties.Resources.ForwardActive;
             this.Pic_forward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pic_forward.Image = global::Tango_Browser.Properties.Resources.ForwardActive;
-            this.Pic_forward.Location = new System.Drawing.Point(125, 6);
-            this.Pic_forward.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Pic_forward.Location = new System.Drawing.Point(111, 5);
             this.Pic_forward.Name = "Pic_forward";
-            this.Pic_forward.Size = new System.Drawing.Size(39, 44);
+            this.Pic_forward.Size = new System.Drawing.Size(35, 35);
             this.Pic_forward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pic_forward.TabIndex = 11;
             this.Pic_forward.TabStop = false;
@@ -222,10 +216,9 @@
             // 
             this.Pic_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pic_back.Image = global::Tango_Browser.Properties.Resources.BackActive;
-            this.Pic_back.Location = new System.Drawing.Point(79, 6);
-            this.Pic_back.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Pic_back.Location = new System.Drawing.Point(70, 5);
             this.Pic_back.Name = "Pic_back";
-            this.Pic_back.Size = new System.Drawing.Size(39, 44);
+            this.Pic_back.Size = new System.Drawing.Size(35, 35);
             this.Pic_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Pic_back.TabIndex = 10;
             this.Pic_back.TabStop = false;
@@ -239,10 +232,9 @@
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.BackgroundImage = global::Tango_Browser.Properties.Resources.UrlBoxRight;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(1059, 6);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(941, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(22, 44);
+            this.pictureBox3.Size = new System.Drawing.Size(20, 35);
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 
@@ -251,10 +243,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Tango_Browser.Properties.Resources.UrlBoxLeft;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(174, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(155, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 44);
+            this.pictureBox1.Size = new System.Drawing.Size(20, 35);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
@@ -263,20 +254,18 @@
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.pictureBox2.Location = new System.Drawing.Point(196, 6);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(174, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(865, 44);
+            this.pictureBox2.Size = new System.Drawing.Size(769, 35);
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
             // Main_Tab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1238, 562);
-            this.Controls.Add(this.chromiumBrowser);
+            this.BackColor = global::Tango_Browser.Properties.Settings.Default.FormBackGround;
+            this.ClientSize = new System.Drawing.Size(1100, 450);
             this.Controls.Add(this.Pic_load);
             this.Controls.Add(this.Pic_pin);
             this.Controls.Add(this.Address_textBox);
@@ -285,12 +274,13 @@
             this.Controls.Add(this.Pic_back);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.Menu);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.chromiumBrowser);
+            this.Controls.Add(this.Menu);
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Menu;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Main_Tab";
             this.Text = "Main_Tab";
             this.Load += new System.EventHandler(this.Main_Tab_Load);
@@ -329,5 +319,6 @@
         private System.Windows.Forms.PictureBox Pic_load;
         private System.Windows.Forms.ToolStripMenuItem backgorundToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

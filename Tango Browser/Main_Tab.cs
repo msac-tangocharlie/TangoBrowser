@@ -26,6 +26,9 @@ namespace Tango_Browser
 
         public Main_Tab()
         {
+            
+            
+                /*Properties.Settings.Default.FormBackGround;*/
             InitializeComponent();
 
 
@@ -281,17 +284,7 @@ namespace Tango_Browser
                 Properties.Settings.Default.Save();
                 this.BackColor = colorDlg.Color;
                 Menu.BackColor = colorDlg.Color;
-               
-                    IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
-                    var colDlg = db.GetCollection<BsonDocument>("Background");
-                    var doc = new BsonDocument
-                        {
-                           {"url", chromiumBrowser.Address},
-                           { "user_id","1"}
-                         };
-                    colDlg.InsertOne(doc);
-               
-
+                
             }
         }
     }
