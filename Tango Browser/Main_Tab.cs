@@ -34,6 +34,7 @@ namespace Tango_Browser
 
             // Add the --enable-media-stream flag
 
+            chromiumBrowser.MenuHandler = new MyCustomMenuHandler();
 
             chromiumBrowser.Load("about:blank");
 
@@ -286,6 +287,50 @@ namespace Tango_Browser
                 Menu.BackColor = colorDlg.Color;
                 
             }
+        }
+
+        private void findInPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            findbox.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            findbox.Visible = false;
+            chromiumBrowser.StopFinding(true);
+        }
+
+        private void but_Find_Click(object sender, EventArgs e)
+        {
+            Find(true);
+        }
+        private void Find(bool next)
+        {
+            if (!string.IsNullOrEmpty(find_textbox.Text))
+            {
+                chromiumBrowser.Find(0, find_textbox.Text, next, false, true);
+            }
+        }
+
+        private void find_textbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+            {
+                return;
+            }
+
+            Find(true);
+        }
+
+        private void find_next_Click(object sender, EventArgs e)
+        {
+            Find(true);
+            
+        }
+
+        private void find_prev_Click(object sender, EventArgs e)
+        {
+            Find(false);
         }
     }
 }
