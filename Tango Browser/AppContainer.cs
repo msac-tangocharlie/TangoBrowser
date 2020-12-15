@@ -28,7 +28,7 @@ namespace Tango_Browser
 
 
             Cef.Initialize(settings);*/
-            AeroPeekEnabled = false;
+            AeroPeekEnabled = true;
             TabRenderer = new ChromeTabRenderer(this);
 
         }

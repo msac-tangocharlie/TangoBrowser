@@ -337,5 +337,12 @@ namespace Tango_Browser
         {
             Find(false);
         }
+
+      
+
+        private void Address_textBox_Click(object sender, EventArgs e)
+        {
+            Address_textBox.SelectAll();
+        }
     }
 }
