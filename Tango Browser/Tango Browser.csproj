@@ -292,7 +292,6 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="DefaultIcon.ico" />
-    <Content Include="index.html" />
     <None Include="Resources\menu.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\refresh.png" />
