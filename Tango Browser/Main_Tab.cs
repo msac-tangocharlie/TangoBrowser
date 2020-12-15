@@ -338,6 +338,11 @@ namespace Tango_Browser
             Find(false);
         }
 
+        private void Address_textBox_Click(object sender, EventArgs e)
+        {
+            Address_textBox.SelectAll();
+        }
+
         //page loading time
         /*private void Page_Load(object sender, EventArgs e)
 
