@@ -158,6 +158,7 @@
             this.Address_textBox.Name = "Address_textBox";
             this.Address_textBox.Size = new System.Drawing.Size(769, 29);
             this.Address_textBox.TabIndex = 6;
+            this.Address_textBox.Click += new System.EventHandler(this.Address_textBox_Click);
             this.Address_textBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Address_textBox_KeyDown);
             // 
             // chromiumBrowser
