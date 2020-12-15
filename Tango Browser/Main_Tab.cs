@@ -338,11 +338,89 @@ namespace Tango_Browser
             Find(false);
         }
 
-      
-
         private void Address_textBox_Click(object sender, EventArgs e)
         {
             Address_textBox.SelectAll();
         }
+
+        //page loading time
+        /*private void Page_Load(object sender, EventArgs e)
+
+        {
+            double startCounter = Convert.ToDouble(DateTime.Now.TimeOfDay.TotalSeconds); if (!IsPostBack)
+
+            {
+
+                griddatabind(0);
+                ViewState["currentIndex"] = 0;
+
+
+            }
+            double endCounter = Convert.ToDouble(DateTime.Now.TimeOfDay.TotalSeconds); double totalSeconds = endCounter - startCounter;
+
+            Response.Write(totalSeconds);
+
+        }*/
+
+        //add vpn
+
+        /*private static string FolderPath => string.Concat(Directory.GetCurrentDirectory(),
+            "\\VPN");
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            if (!Directory.Exists(FolderPath))
+                Directory.CreateDirectory(FolderPath);
+
+            var sb = new StringBuilder();
+            sb.AppendLine("[VPN]");
+            sb.AppendLine("MEDIA=rastapi");
+            sb.AppendLine("Port=VPN2-0");
+            sb.AppendLine("Device=WAN Miniport (IKEv2)");
+            sb.AppendLine("DEVICE=vpn");
+            sb.AppendLine("PhoneNumber=" + txtHost.Text);
+
+            File.WriteAllText(FolderPath + "\\VpnConnection.pbk", sb.ToString());
+
+            sb = new StringBuilder();
+            sb.AppendLine("rasdial \"VPN\" " + txtUsrname.Text + " " + txtPassword.Text + " /phonebook:\"" + FolderPath +
+                          "\\VpnConnection.pbk\"");
+
+            File.WriteAllText(FolderPath + "\\VpnConnection.bat", sb.ToString());
+
+            var newProcess = new Process
+            {
+                StartInfo =
+                {
+                    FileName = FolderPath + "\\VpnConnection.bat",
+                    WindowStyle = ProcessWindowStyle.Normal
+                }
+            };
+
+            newProcess.Start();
+            newProcess.WaitForExit();
+            btnConnect.Enabled = false;
+            btnDisconnect.Enabled = true;
+        }
+
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText(FolderPath + "\\VpnDisconnect.bat", "rasdial /d");
+
+            var newProcess = new Process
+            {
+                StartInfo =
+                {
+                    FileName = FolderPath + "\\VpnDisconnect.bat",
+                    WindowStyle = ProcessWindowStyle.Normal
+                }
+            };
+
+            newProcess.Start();
+            newProcess.WaitForExit();
+            btnConnect.Enabled = true;
+            btnDisconnect.Enabled = false;
+        }*/
+
     }
 }
