@@ -14,22 +14,28 @@ namespace CefSharp.Example.Handlers
 
         public event EventHandler<DownloadItem> OnDownloadUpdatedFired;
 
-        private ProgressBar _bar;
+       
         private Label _label;
-        public DownloadHandler(ProgressBar bar, Label label)
+         private PictureBox _picout,_picin;
+        private int len;
+        public DownloadHandler( Label label,PictureBox picout,PictureBox picin)
         {
-            _bar = bar;
+            
             _label = label;
+            _picout = picout;
+            _picin = picin;
+            len = picin.Height;
+            
         }
       
 
 
         public void OnBeforeDownload(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IBeforeDownloadCallback callback)
         {
-            
-            _bar.ForeColor= System.Drawing.Color.Yellow;
-            _bar.Visible = true;
 
+            _label.Visible = true;
+            _picin.Visible = true;
+            _picout.Visible = true;
             OnBeforeDownloadFired?.Invoke(this, downloadItem);
 
             if (!callback.IsDisposed)
@@ -40,21 +46,21 @@ namespace CefSharp.Example.Handlers
                 }
             }
         }
-
+        
         public void OnDownloadUpdated(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IDownloadItemCallback callback)
         {
-
+            
             OnDownloadUpdatedFired?.Invoke(this, downloadItem);
-            _bar.Value = downloadItem.PercentComplete;
             _label.Text = downloadItem.PercentComplete.ToString() + "%";
-
-            /*_bar.Maximum = Convert.ToInt32(downloadItem.TotalBytes);
-            _bar.Value = Convert.ToInt32(downloadItem.ReceivedBytes);*/
-           /* if(_bar.Maximum>0)_label.Text = (_bar.Value / _bar.Maximum).ToString() + "%";*/
+            
+            _picin.Height = len-(downloadItem.PercentComplete * len)/100;
+            
+       
             if (downloadItem.IsComplete) { 
-                      _bar.ForeColor = System.Drawing.Color.Green;
-                _label.Text = "Finished";
+                _label.Text = "100%";
+                MessageBox.Show("Download Finished");
             }
+            
         }
     }
 }
