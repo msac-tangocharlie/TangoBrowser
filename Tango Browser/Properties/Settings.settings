@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="FormBackGround" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">WhiteSmoke</Value>
+      <Value Profile="(Default)">White</Value>
     </Setting>
   </Settings>
 </SettingsFile>
