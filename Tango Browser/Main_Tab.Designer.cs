@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Tab));
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.Address_textBox = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.findbox = new System.Windows.Forms.GroupBox();
@@ -38,20 +39,21 @@
             this.find_label = new System.Windows.Forms.Label();
             this.but_Find = new System.Windows.Forms.Button();
             this.find_textbox = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.progressBar3 = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.incogBrowse = new CefSharp.WinForms.ChromiumWebBrowser();
-            this.chromiumBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.downPercent = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.but_color = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.findPanel = new System.Windows.Forms.Button();
             this.histPanel = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.incogBrowse = new CefSharp.WinForms.ChromiumWebBrowser();
+            this.chromiumBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Pic_pin = new System.Windows.Forms.PictureBox();
             this.Pic_load = new System.Windows.Forms.PictureBox();
             this.Pic_home = new System.Windows.Forms.PictureBox();
@@ -59,14 +61,16 @@
             this.Pic_back = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.findbox.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.SuspendLayout();
+            this.findbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_pin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_load)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_home)).BeginInit();
@@ -74,8 +78,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pic_back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // splitContainer2
+            // 
+            resources.ApplyResources(this.splitContainer2, "splitContainer2");
+            this.splitContainer2.Name = "splitContainer2";
             // 
             // Address_textBox
             // 
@@ -140,10 +148,20 @@
             this.find_textbox.Name = "find_textbox";
             this.find_textbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.find_textbox_KeyDown);
             // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
+            // 
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.GhostWhite;
+            this.panel1.Controls.Add(this.downPercent);
+            this.panel1.Controls.Add(this.pictureBox7);
+            this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.but_color);
             this.panel1.Controls.Add(this.button4);
@@ -151,27 +169,66 @@
             this.panel1.Controls.Add(this.histPanel);
             this.panel1.Name = "panel1";
             // 
-            // progressBar2
+            // downPercent
             // 
-            resources.ApplyResources(this.progressBar2, "progressBar2");
-            this.progressBar2.BackColor = System.Drawing.Color.Maroon;
-            this.progressBar2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar2.Click += new System.EventHandler(this.progressBar2_Click);
+            resources.ApplyResources(this.downPercent, "downPercent");
+            this.downPercent.ForeColor = System.Drawing.Color.Black;
+            this.downPercent.Name = "downPercent";
             // 
-            // splitContainer2
+            // pictureBox7
             // 
-            resources.ApplyResources(this.splitContainer2, "splitContainer2");
-            this.splitContainer2.Name = "splitContainer2";
+            resources.ApplyResources(this.pictureBox7, "pictureBox7");
+            this.pictureBox7.BackgroundImage = global::Tango_Browser.Properties.Resources.downloadIn;
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.TabStop = false;
             // 
-            // splitContainer2.Panel1
+            // pictureBox5
             // 
-            resources.ApplyResources(this.splitContainer2.Panel1, "splitContainer2.Panel1");
+            resources.ApplyResources(this.pictureBox5, "pictureBox5");
+            this.pictureBox5.BackgroundImage = global::Tango_Browser.Properties.Resources.downloadOut;
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.TabStop = false;
             // 
-            // splitContainer2.Panel2
+            // pictureBox6
             // 
-            resources.ApplyResources(this.splitContainer2.Panel2, "splitContainer2.Panel2");
+            this.pictureBox6.Image = global::Tango_Browser.Properties.Resources.Incognito;
+            resources.ApplyResources(this.pictureBox6, "pictureBox6");
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            // 
+            // but_color
+            // 
+            this.but_color.BackgroundImage = global::Tango_Browser.Properties.Resources.color;
+            resources.ApplyResources(this.but_color, "but_color");
+            this.but_color.Name = "but_color";
+            this.but_color.UseVisualStyleBackColor = true;
+            this.but_color.Click += new System.EventHandler(this.but_color_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::Tango_Browser.Properties.Resources.inspect;
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // findPanel
+            // 
+            this.findPanel.BackgroundImage = global::Tango_Browser.Properties.Resources.findText;
+            resources.ApplyResources(this.findPanel, "findPanel");
+            this.findPanel.Name = "findPanel";
+            this.findPanel.UseVisualStyleBackColor = true;
+            this.findPanel.Click += new System.EventHandler(this.findPanel_Click);
+            // 
+            // histPanel
+            // 
+            this.histPanel.BackgroundImage = global::Tango_Browser.Properties.Resources.history_512;
+            resources.ApplyResources(this.histPanel, "histPanel");
+            this.histPanel.ForeColor = System.Drawing.Color.White;
+            this.histPanel.Name = "histPanel";
+            this.histPanel.UseVisualStyleBackColor = true;
+            this.histPanel.Click += new System.EventHandler(this.histPanel_Click);
             // 
             // panel2
             // 
@@ -179,8 +236,6 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.findbox);
             this.panel2.Controls.Add(this.progressBar3);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.progressBar2);
             this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Name = "panel2";
             // 
@@ -190,15 +245,10 @@
             this.progressBar3.Name = "progressBar3";
             this.progressBar3.Value = 8;
             // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
             // incogBrowse
             // 
-            resources.ApplyResources(this.incogBrowse, "incogBrowse");
             this.incogBrowse.ActivateBrowserOnCreation = false;
+            resources.ApplyResources(this.incogBrowse, "incogBrowse");
             this.incogBrowse.Name = "incogBrowse";
             this.incogBrowse.FrameLoadStart += new System.EventHandler<CefSharp.FrameLoadStartEventArgs>(this.incogBrowse_FrameLoadStart);
             this.incogBrowse.FrameLoadEnd += new System.EventHandler<CefSharp.FrameLoadEndEventArgs>(this.incogBrowse_FrameLoadEnd);
@@ -207,8 +257,8 @@
             // 
             // chromiumBrowser
             // 
-            resources.ApplyResources(this.chromiumBrowser, "chromiumBrowser");
             this.chromiumBrowser.ActivateBrowserOnCreation = false;
+            resources.ApplyResources(this.chromiumBrowser, "chromiumBrowser");
             this.chromiumBrowser.Name = "chromiumBrowser";
             this.chromiumBrowser.FrameLoadStart += new System.EventHandler<CefSharp.FrameLoadStartEventArgs>(this.chromiumBrowser_FrameLoadStart);
             this.chromiumBrowser.FrameLoadEnd += new System.EventHandler<CefSharp.FrameLoadEndEventArgs>(this.chromiumBrowser_FrameLoadEnd_1);
@@ -224,47 +274,6 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click_2);
             // 
-            // pictureBox6
-            // 
-            resources.ApplyResources(this.pictureBox6, "pictureBox6");
-            this.pictureBox6.Image = global::Tango_Browser.Properties.Resources.Incognito;
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
-            // but_color
-            // 
-            resources.ApplyResources(this.but_color, "but_color");
-            this.but_color.BackgroundImage = global::Tango_Browser.Properties.Resources.color;
-            this.but_color.Name = "but_color";
-            this.but_color.UseVisualStyleBackColor = true;
-            this.but_color.Click += new System.EventHandler(this.but_color_Click);
-            // 
-            // button4
-            // 
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.BackgroundImage = global::Tango_Browser.Properties.Resources.inspect;
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // findPanel
-            // 
-            resources.ApplyResources(this.findPanel, "findPanel");
-            this.findPanel.BackgroundImage = global::Tango_Browser.Properties.Resources.findText;
-            this.findPanel.Name = "findPanel";
-            this.findPanel.UseVisualStyleBackColor = true;
-            this.findPanel.Click += new System.EventHandler(this.findPanel_Click);
-            // 
-            // histPanel
-            // 
-            resources.ApplyResources(this.histPanel, "histPanel");
-            this.histPanel.BackgroundImage = global::Tango_Browser.Properties.Resources.history_512;
-            this.histPanel.ForeColor = System.Drawing.Color.White;
-            this.histPanel.Name = "histPanel";
-            this.histPanel.UseVisualStyleBackColor = true;
-            this.histPanel.Click += new System.EventHandler(this.histPanel_Click);
-            // 
             // Pic_pin
             // 
             resources.ApplyResources(this.Pic_pin, "Pic_pin");
@@ -275,17 +284,17 @@
             // 
             // Pic_load
             // 
-            resources.ApplyResources(this.Pic_load, "Pic_load");
             this.Pic_load.BackColor = System.Drawing.Color.Transparent;
             this.Pic_load.Image = global::Tango_Browser.Properties.Resources.refresh;
+            resources.ApplyResources(this.Pic_load, "Pic_load");
             this.Pic_load.Name = "Pic_load";
             this.Pic_load.TabStop = false;
             this.Pic_load.Click += new System.EventHandler(this.pictureBox4_Click_1);
             // 
             // Pic_home
             // 
-            resources.ApplyResources(this.Pic_home, "Pic_home");
             this.Pic_home.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.Pic_home, "Pic_home");
             this.Pic_home.Image = global::Tango_Browser.Properties.Resources.Home;
             this.Pic_home.Name = "Pic_home";
             this.Pic_home.TabStop = false;
@@ -295,9 +304,9 @@
             // 
             // Pic_forward
             // 
-            resources.ApplyResources(this.Pic_forward, "Pic_forward");
             this.Pic_forward.BackColor = System.Drawing.Color.Transparent;
             this.Pic_forward.BackgroundImage = global::Tango_Browser.Properties.Resources.ForwardActive;
+            resources.ApplyResources(this.Pic_forward, "Pic_forward");
             this.Pic_forward.Image = global::Tango_Browser.Properties.Resources.ForwardActive;
             this.Pic_forward.Name = "Pic_forward";
             this.Pic_forward.TabStop = false;
@@ -307,8 +316,8 @@
             // 
             // Pic_back
             // 
-            resources.ApplyResources(this.Pic_back, "Pic_back");
             this.Pic_back.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.Pic_back, "Pic_back");
             this.Pic_back.Image = global::Tango_Browser.Properties.Resources.BackActive;
             this.Pic_back.Name = "Pic_back";
             this.Pic_back.TabStop = false;
@@ -326,18 +335,11 @@
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Tango_Browser.Properties.Resources.UrlBoxLeft;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
             // 
             // Main_Tab
             // 
@@ -360,15 +362,18 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main_Tab";
-            this.findbox.ResumeLayout(false);
-            this.findbox.PerformLayout();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.findbox.ResumeLayout(false);
+            this.findbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_pin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_load)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_home)).EndInit();
@@ -376,7 +381,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pic_back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,13 +410,14 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label1;
-        protected System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.ProgressBar progressBar3;
         private CefSharp.WinForms.ChromiumWebBrowser chromiumBrowser;
         private CefSharp.WinForms.ChromiumWebBrowser incogBrowse;
         private System.Windows.Forms.Button but_color;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label downPercent;
     }
 }

@@ -28,13 +28,13 @@ namespace Tango_Browser
             req.PersistSessionCookies = false;
             incogBrowse = new CefSharp.WinForms.ChromiumWebBrowser("www.google.com");
             incogBrowse.RequestContext = new RequestContext(req);
-            progressBar2.Visible = false;
+            
             chromiumBrowser.Load("www.google.com");
             panel2.Controls.Add(chromiumBrowser);
             chromiumBrowser.Parent = panel2;
             chromiumBrowser.Dock = DockStyle.Fill;
             chromiumBrowser.MenuHandler = new MyCustomMenuHandler();
-            chromiumBrowser.DownloadHandler = new DownloadHandler(progressBar2,label1);
+            chromiumBrowser.DownloadHandler = new DownloadHandler(downPercent,pictureBox5,pictureBox7);
             chromiumBrowser.Load("about:blank");
             Address_textBox.Text = chromiumBrowser.Address;
             TextBox.CheckForIllegalCrossThreadCalls = false;
@@ -513,7 +513,6 @@ namespace Tango_Browser
                 incogBrowse.ShowDevTools();
             }
         }
-
         
     }
 }

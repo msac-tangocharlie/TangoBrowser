@@ -287,6 +287,8 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="DefaultIcon.ico" />
+    <None Include="Resources\downloadIn.png" />
+    <None Include="Resources\downloadOut.png" />
     <None Include="Resources\IncognitoOn.png" />
     <None Include="Resources\on1.png" />
     <None Include="Resources\on.png" />
