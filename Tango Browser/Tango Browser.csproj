@@ -197,6 +197,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -230,12 +231,6 @@
       <DependentUpon>AppContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="DownloadHandler.cs" />
-    <Compile Include="History.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="History.Designer.cs">
-      <DependentUpon>History.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main_Tab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,8 +249,8 @@
     <EmbeddedResource Include="AppContainer.resx">
       <DependentUpon>AppContainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="History.resx">
-      <DependentUpon>History.cs</DependentUpon>
+    <EmbeddedResource Include="Main_Tab.en.resx">
+      <DependentUpon>Main_Tab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Tab.resx">
       <DependentUpon>Main_Tab.cs</DependentUpon>
@@ -292,6 +287,17 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="DefaultIcon.ico" />
+    <None Include="Resources\IncognitoOn.png" />
+    <None Include="Resources\on1.png" />
+    <None Include="Resources\on.png" />
+    <None Include="Resources\off.png" />
+    <None Include="Resources\DefaultIcon1.ico" />
+    <None Include="Resources\DefaultIcon1.png" />
+    <None Include="Resources\color.png" />
+    <None Include="Resources\inspect.png" />
+    <None Include="Resources\Incognito.png" />
+    <None Include="Resources\history-512.png" />
+    <None Include="Resources\findText.png" />
     <None Include="Resources\menu.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\refresh.png" />

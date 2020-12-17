@@ -38,7 +38,7 @@ namespace Tango_Browser
                         Content = new Main_Tab
                         {
                             Text = "New Tab",
-                            Icon= new Icon("DefaultIcon.ico")
+                            Icon = new Icon("DefaultIcon.ico")
                         }
                     }
                 );
