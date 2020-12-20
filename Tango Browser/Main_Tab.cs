@@ -35,6 +35,7 @@ namespace Tango_Browser
             chromiumBrowser.Dock = DockStyle.Fill;
             chromiumBrowser.MenuHandler = new MyCustomMenuHandler();
             chromiumBrowser.DownloadHandler = new DownloadHandler(downPercent,pictureBox5,pictureBox7);
+            chromiumBrowser.LifeSpanHandler = new MyLifeHandler();
             chromiumBrowser.Load("about:blank");
             Address_textBox.Text = chromiumBrowser.Address;
             TextBox.CheckForIllegalCrossThreadCalls = false;
@@ -144,7 +145,7 @@ namespace Tango_Browser
             if (!pinned)
             {
                 IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
-                var star = db.GetCollection<BsonDocument>("Starred");
+                var star = db.GetCollection<BsonDocument>("Pinned");
                 var doc = new BsonDocument
             {
                 {"url", chromiumBrowser.Address},
@@ -156,6 +157,10 @@ namespace Tango_Browser
             }
             else
             {
+                IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
+                var pinif = db.GetCollection<BsonDocument>("Pinned");
+                var filter = Builders<BsonDocument>.Filter.Eq("url", Address_textBox.Text);
+                pinif.DeleteOne(filter);
                 Pic_pin.Image = Resources.pin;
                 pinned = false;
             }
@@ -213,68 +218,7 @@ namespace Tango_Browser
             Address_textBox.SelectAll();
         }
 
-        private void findPanel_Click(object sender, EventArgs e)
-        {
-            if (findbox.Visible)
-            {
-                findbox.Visible = false;
-                if (inco == 0) chromiumBrowser.StopFinding(true);
-                else incogBrowse.StopFinding(true);
-            }
-            else findbox.Visible = true;
-        }
-
-        private void progressBar2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Downloading file. Please Wait");
-        }
-        ListView histListt= new ListView();
-        int ischrome ;
-        private void histPanel_Click(object sender, EventArgs e)
-        {
-
-            if (!(panel2.Contains(histListt)))
-            {
-                histListt = new ListView();
-                histListt.GridLines = false;
-                histListt.View = System.Windows.Forms.View.List;
-                panel2.Padding = new System.Windows.Forms.Padding(70, 10, 10, 10);
-                IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
-                var hist = db.GetCollection<BsonDocument>("History");
-                var filter = Builders<BsonDocument>.Filter.Eq("user_id", "1");
-                var doc = hist.Find(filter).ToList();
-                foreach (BsonDocument docu in doc)
-                {
-                    histListt.Items.Add(docu.GetValue("url").ToString());
-                }
-                if (panel2.Contains(incogBrowse))
-                {
-                    ischrome = 1;
-                    panel2.Controls.Remove(incogBrowse);
-                    panel2.Controls.Add(histListt);
-                }
-                if (panel2.Controls.Contains(chromiumBrowser))
-                {
-                    ischrome = 0;
-                    panel2.Controls.Remove(chromiumBrowser);
-                    panel2.Controls.Add(histListt);
-                }
-                histListt.Dock = DockStyle.Fill;
-            }
-            else
-            {
-                panel2.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-                panel2.Controls.Remove(histListt);
-                if (ischrome != 1)
-                {
-                    panel2.Controls.Add(chromiumBrowser);
-                }
-                else
-                {
-                    panel2.Controls.Add(incogBrowse);
-                }
-            }
-        }
+       
         
         private async void chromiumBrowser_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
         {
@@ -282,22 +226,32 @@ namespace Tango_Browser
             if (e.IsLoading)
             {
                 await Task.Delay(50);
-                int val= progressBar3.Value + progressBar3.Value / 2;
-                if (val <= 100) progressBar3.Value = val;
+                int val= siteLoading.Value + siteLoading.Value / 2;
+                if (val <= 100) siteLoading.Value = val;
             }
         }
 
         private void chromiumBrowser_FrameLoadEnd_1(object sender, FrameLoadEndEventArgs e)
         {
-            progressBar3.Value = 100;
+            siteLoading.Value = 100;
             Address_textBox.Text = chromiumBrowser.Address;
             Pic_load.Image = Resources.refresh;
+            IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
+            var pinif = db.GetCollection<BsonDocument>("Pinned");
+            var filter = Builders<BsonDocument>.Filter.Eq("url", Address_textBox.Text);
+            if (pinif.CountDocuments(filter) != 0)
+            {
+                Pic_pin.Image = Resources.pinned;
+                pinned = true;
+            }
+            
+
         }
 
         private void chromiumBrowser_FrameLoadStart(object sender, FrameLoadStartEventArgs e)
         {
             Pic_load.Image = Resources.cancel;
-            progressBar3.Value = 50;
+            siteLoading.Value = 40;
         }
 
         private void chromiumBrowser_TitleChanged_1(object sender, TitleChangedEventArgs e)
@@ -322,7 +276,8 @@ namespace Tango_Browser
         private void chromiumBrowser_AddressChanged(object sender, AddressChangedEventArgs e)
         {
             Invoke(new Action(() => Address_textBox.Text = e.Address));
-
+            Pic_pin.Image = Resources.pin;
+            pinned = false;
             if (e.Address != "about.blank" && !faviconLoaded)
             {
                 Uri uri = new Uri(e.Address);
@@ -374,21 +329,13 @@ namespace Tango_Browser
             }
         }
 
-        private void but_color_Click(object sender, EventArgs e)
-        {
-            ColorDialog colorDlg = new ColorDialog();
-            if (colorDlg.ShowDialog() == DialogResult.OK)
-            {
-                Properties.Settings.Default.FormBackGround = colorDlg.Color;
-                Properties.Settings.Default.Save();
-                this.BackColor = colorDlg.Color;
-            }
-        }
 
         private void incogBrowse_AddressChanged(object sender, AddressChangedEventArgs e)
         {
             Invoke(new Action(() => Address_textBox.Text = e.Address));
-            Address_textBox.Text = incogBrowse.Address;
+            Console.WriteLine("Reached here");
+            Pic_pin.Image = Resources.pin;
+            pinned = false;
             if (e.Address != "about.blank" && !faviconLoaded)
             {
                 Uri uri = new Uri(e.Address);
@@ -442,13 +389,14 @@ namespace Tango_Browser
 
         private void incogBrowse_FrameLoadStart(object sender, FrameLoadStartEventArgs e)
         {
+            Address_textBox.Text = incogBrowse.Address;
             Pic_load.Image = Resources.cancel;
-            progressBar3.Value = 50;
+            siteLoading.Value = 40;
         }
 
         private void incogBrowse_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
-            progressBar3.Value = 100;
+            siteLoading.Value = 100;
             Address_textBox.Text = incogBrowse.Address;
             Pic_load.Image = Resources.refresh;
         }
@@ -459,8 +407,8 @@ namespace Tango_Browser
             if (e.IsLoading)
             {
                 await Task.Delay(50);
-                int val = progressBar3.Value + progressBar3.Value / 2;
-                if (val <= 100) progressBar3.Value = val;
+                int val = siteLoading.Value + siteLoading.Value / 2;
+                if (val <= 100) siteLoading.Value = val;
             }
         }
         int panel = 0;
@@ -471,14 +419,14 @@ namespace Tango_Browser
                 pictureBox4.Image = Resources.on1;
                 panel = 1;
                 panel1.Visible = true;
-                panel2.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+                panel2.Padding = new Padding(60, 0, 0, 0);
             }
             else
             {
                 pictureBox4.Image = Resources.off;
                 panel = 0;
                 panel1.Visible = false;
-                panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+                panel2.Padding = new Padding(0, 0, 0, 0);
             }
         }
         int inco = 0;
@@ -502,7 +450,8 @@ namespace Tango_Browser
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+
+        private void pictureBox8_Click(object sender, EventArgs e)
         {
             if (inco == 0)
             {
@@ -513,6 +462,211 @@ namespace Tango_Browser
                 incogBrowse.ShowDevTools();
             }
         }
+     
+        int ischrome;
         
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+
+
+            if (!(panel2.Contains(histListt)))
+            {
+                histListt.Visible = true;
+                Address_textBox.Text = "History";
+                histListt.Items.Clear();
+                histListt.GridLines = false;
+                histListt.View = System.Windows.Forms.View.List;
+                panel2.Padding = new Padding(70, 15, 10, 10);
+                IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
+                var hist = db.GetCollection<BsonDocument>("History");
+                var filter = Builders<BsonDocument>.Filter.Eq("user_id", "1");
+                var doc = hist.Find(filter).ToList();
+                foreach (BsonDocument docu in doc)
+                {
+                    histListt.Items.Add(docu.GetValue("url").ToString());
+                    
+                }
+                if (panel2.Contains(incogBrowse))
+                {
+                    ischrome = 1;
+                    panel2.Controls.Remove(incogBrowse);
+                    panel2.Controls.Add(histListt);
+                }
+                if (panel2.Controls.Contains(chromiumBrowser))
+                {
+                    ischrome = 0;
+                    panel2.Controls.Remove(chromiumBrowser);
+                    panel2.Controls.Add(histListt);
+                }
+                if (panel2.Controls.Contains(pinnedList))
+                {
+                    
+                    panel2.Controls.Remove(pinnedList);
+                    panel2.Controls.Add(histListt);
+                }
+                histListt.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                panel2.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+                panel2.Controls.Remove(histListt);
+                if (ischrome != 1)
+                {
+                    Address_textBox.Text = chromiumBrowser.Address;
+                    panel2.Controls.Add(chromiumBrowser);
+                }
+                else
+                {
+                    Address_textBox.Text = incogBrowse.Address;
+                    panel2.Controls.Add(incogBrowse);
+                }
+            }
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            if (findbox.Visible)
+            {
+                findbox.Visible = false;
+                if (inco == 0) chromiumBrowser.StopFinding(true);
+                else incogBrowse.StopFinding(true);
+            }
+            else findbox.Visible = true;
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+
+            ColorDialog colorDlg = new ColorDialog();
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+            {
+                Properties.Settings.Default.FormBackGround = colorDlg.Color;
+                Properties.Settings.Default.Save();
+                this.BackColor = colorDlg.Color;
+            }
+        }
+
+        private void clearHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
+            db.DropCollection("History");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            settingBox.Padding = new Padding(0, 0, 0, 0);
+            settingBox.Visible=false;
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            if (settingBox.Visible)
+            {
+                settingBox.Padding = new Padding(0, 0, 0, 0);
+                settingBox.Visible = false;
+            }
+            else 
+                settingBox.Visible = true;
+        }
+        /*ListView pinnedList = new ListView();*/
+        
+        
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            
+            if (!(panel2.Contains(pinnedList)))
+            {
+                Address_textBox.Text = "Pinned Pages";
+                pinnedList.Items.Clear();
+                pinnedList.GridLines = false;
+                pinnedList.Visible = true;
+                pinnedList.View = System.Windows.Forms.View.List;
+                panel2.Padding = new Padding(70, 15, 10, 10);
+                IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
+                var pin = db.GetCollection<BsonDocument>("Pinned");
+                var filter = Builders<BsonDocument>.Filter.Eq("user_id", "1");
+                var doc = pin.Find(filter).ToList();
+                foreach (BsonDocument docu in doc)
+                {
+                    pinnedList.Items.Add(docu.GetValue("url").ToString());
+                }
+                if (panel2.Contains(incogBrowse))
+                {
+                    ischrome = 1;
+                    panel2.Controls.Remove(incogBrowse);
+                    panel2.Controls.Add(pinnedList);
+                }
+                if (panel2.Controls.Contains(chromiumBrowser))
+                {
+                    ischrome = 0;
+                    panel2.Controls.Remove(chromiumBrowser);
+                    panel2.Controls.Add(pinnedList);
+                }
+                if (panel2.Controls.Contains(histListt))
+                {
+
+                    panel2.Controls.Remove(histListt);
+                    panel2.Controls.Add(pinnedList);
+                }
+                pinnedList.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                panel2.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+                
+                panel2.Controls.Remove(pinnedList);
+                if (ischrome != 1)
+                {
+                    
+                    Address_textBox.Text = chromiumBrowser.Address;
+                    panel2.Controls.Add(chromiumBrowser);
+                }
+                else
+                {
+                    
+                    Address_textBox.Text = incogBrowse.Address;
+                    panel2.Controls.Add(incogBrowse);
+                }
+            }
+        }
+        
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pinnedList_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (ischrome != 1)
+            {
+                chromiumBrowser.Load(e.Item.Text);
+                panel2.Controls.Remove(pinnedList);
+                panel2.Controls.Add(chromiumBrowser);
+            }
+            else
+            {
+                incogBrowse.Load(e.Item.Text);
+                panel2.Controls.Remove(pinnedList);
+                panel2.Controls.Add(incogBrowse);
+            }
+           
+        }
+
+        private void histListt_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+
+            if (ischrome != 1)
+            {
+                chromiumBrowser.Load(e.Item.Text);
+                panel2.Controls.Remove(histListt);
+                panel2.Controls.Add(chromiumBrowser);
+            }
+            else
+            {
+                incogBrowse.Load(e.Item.Text);
+                panel2.Controls.Remove(histListt);
+                panel2.Controls.Add(incogBrowse);
+            }
+        }
     }
 }

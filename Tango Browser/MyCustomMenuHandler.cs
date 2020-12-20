@@ -19,15 +19,15 @@ public class MyCustomMenuHandler : IContextMenuHandler
 
 
         // Add a new item to the list using the AddItem method of the model
-       
+        model.AddItem((CefMenuCommand)26504, "Save As");
         model.AddItem((CefMenuCommand)26505, "Show DevTools");
         
 
         // Add a separator
-        
+
 
         // Add another example item
-        
+
     }
 
     public bool OnContextMenuCommand(IWebBrowser browserControl, IBrowser browser, IFrame frame, IContextMenuParams parameters, CefMenuCommand commandId, CefEventFlags eventFlags)
@@ -38,8 +38,13 @@ public class MyCustomMenuHandler : IContextMenuHandler
             browser.GetHost().ShowDevTools();
             return true;
         }
+        if (commandId == (CefMenuCommand)26504)
+        {
+            MessageBox.Show("Save as feature");
+            return true;
+        }
 
-       
+
         // Any new item should be handled through a new if statement
 
 
