@@ -52,6 +52,13 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Profile = new System.Windows.Forms.GroupBox();
+            this.editProfile = new System.Windows.Forms.PictureBox();
+            this.charlieValue = new System.Windows.Forms.Label();
+            this.UserEmail = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.UserName = new System.Windows.Forms.LinkLabel();
             this.histListt = new System.Windows.Forms.ListView();
             this.pinnedList = new System.Windows.Forms.ListView();
             this.settingBox = new System.Windows.Forms.GroupBox();
@@ -65,6 +72,8 @@
             this.siteLoading = new System.Windows.Forms.ProgressBar();
             this.incogBrowse = new CefSharp.WinForms.ChromiumWebBrowser();
             this.chromiumBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Pic_pin = new System.Windows.Forms.PictureBox();
             this.Pic_load = new System.Windows.Forms.PictureBox();
@@ -73,7 +82,6 @@
             this.Pic_back = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.findbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -88,10 +96,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel2.SuspendLayout();
+            this.Profile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.settingBox.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_pin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_load)).BeginInit();
@@ -100,7 +113,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pic_back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.SuspendLayout();
             // 
             // Address_textBox
@@ -113,7 +125,7 @@
             this.Address_textBox.Location = new System.Drawing.Point(209, 13);
             this.Address_textBox.Margin = new System.Windows.Forms.Padding(0);
             this.Address_textBox.Name = "Address_textBox";
-            this.Address_textBox.Size = new System.Drawing.Size(734, 31);
+            this.Address_textBox.Size = new System.Drawing.Size(683, 31);
             this.Address_textBox.TabIndex = 6;
             this.Address_textBox.Click += new System.EventHandler(this.Address_textBox_Click);
             this.Address_textBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Address_textBox_KeyDown);
@@ -390,6 +402,7 @@
             this.panel2.AutoScroll = true;
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.Profile);
             this.panel2.Controls.Add(this.histListt);
             this.panel2.Controls.Add(this.pinnedList);
             this.panel2.Controls.Add(this.settingBox);
@@ -402,6 +415,88 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1109, 870);
             this.panel2.TabIndex = 19;
+            // 
+            // Profile
+            // 
+            this.Profile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Profile.Controls.Add(this.editProfile);
+            this.Profile.Controls.Add(this.charlieValue);
+            this.Profile.Controls.Add(this.UserEmail);
+            this.Profile.Controls.Add(this.label1);
+            this.Profile.Controls.Add(this.pictureBox17);
+            this.Profile.Controls.Add(this.UserName);
+            this.Profile.Location = new System.Drawing.Point(730, 8);
+            this.Profile.Name = "Profile";
+            this.Profile.Size = new System.Drawing.Size(375, 184);
+            this.Profile.TabIndex = 27;
+            this.Profile.TabStop = false;
+            this.Profile.Text = "Profile";
+            this.Profile.Visible = false;
+            this.Profile.Enter += new System.EventHandler(this.Profile_Enter);
+            // 
+            // editProfile
+            // 
+            this.editProfile.BackgroundImage = global::Tango_Browser.Properties.Resources.edit;
+            this.editProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.editProfile.Location = new System.Drawing.Point(327, 145);
+            this.editProfile.Name = "editProfile";
+            this.editProfile.Size = new System.Drawing.Size(30, 30);
+            this.editProfile.TabIndex = 5;
+            this.editProfile.TabStop = false;
+            this.editProfile.Click += new System.EventHandler(this.editProfile_Click);
+            // 
+            // charlieValue
+            // 
+            this.charlieValue.AutoSize = true;
+            this.charlieValue.ForeColor = System.Drawing.Color.Maroon;
+            this.charlieValue.Location = new System.Drawing.Point(232, 119);
+            this.charlieValue.Name = "charlieValue";
+            this.charlieValue.Size = new System.Drawing.Size(23, 25);
+            this.charlieValue.TabIndex = 4;
+            this.charlieValue.Text = "0";
+            // 
+            // UserEmail
+            // 
+            this.UserEmail.AutoSize = true;
+            this.UserEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserEmail.ForeColor = System.Drawing.Color.Gray;
+            this.UserEmail.Location = new System.Drawing.Point(151, 83);
+            this.UserEmail.Name = "UserEmail";
+            this.UserEmail.Size = new System.Drawing.Size(67, 17);
+            this.UserEmail.TabIndex = 3;
+            this.UserEmail.Text = "Set Email";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(148, 118);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Charlies:";
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackgroundImage = global::Tango_Browser.Properties.Resources.avatar;
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox17.ErrorImage = global::Tango_Browser.Properties.Resources.avatar;
+            this.pictureBox17.Location = new System.Drawing.Point(16, 46);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(125, 125);
+            this.pictureBox17.TabIndex = 1;
+            this.pictureBox17.TabStop = false;
+            // 
+            // UserName
+            // 
+            this.UserName.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.UserName.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.UserName.Location = new System.Drawing.Point(147, 55);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(153, 33);
+            this.UserName.TabIndex = 0;
+            this.UserName.TabStop = true;
+            this.UserName.Text = "Set Name";
             // 
             // histListt
             // 
@@ -557,12 +652,37 @@
             this.chromiumBrowser.AddressChanged += new System.EventHandler<CefSharp.AddressChangedEventArgs>(this.chromiumBrowser_AddressChanged);
             this.chromiumBrowser.TitleChanged += new System.EventHandler<CefSharp.TitleChangedEventArgs>(this.chromiumBrowser_TitleChanged_1);
             // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox16.BackgroundImage = global::Tango_Browser.Properties.Resources.avatar;
+            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox16.ErrorImage = global::Tango_Browser.Properties.Resources.avatar;
+            this.pictureBox16.Location = new System.Drawing.Point(1056, 3);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox16.TabIndex = 27;
+            this.pictureBox16.TabStop = false;
+            this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
+            this.pictureBox15.Location = new System.Drawing.Point(209, 7);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(688, 36);
+            this.pictureBox15.TabIndex = 25;
+            this.pictureBox15.TabStop = false;
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::Tango_Browser.Properties.Resources.off;
             this.pictureBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox4.Location = new System.Drawing.Point(1020, 7);
+            this.pictureBox4.Location = new System.Drawing.Point(972, 7);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(75, 35);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -576,7 +696,7 @@
             this.Pic_pin.BackColor = System.Drawing.Color.Transparent;
             this.Pic_pin.Image = global::Tango_Browser.Properties.Resources.pin;
             this.Pic_pin.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Pic_pin.Location = new System.Drawing.Point(972, 3);
+            this.Pic_pin.Location = new System.Drawing.Point(924, 3);
             this.Pic_pin.Name = "Pic_pin";
             this.Pic_pin.Size = new System.Drawing.Size(41, 41);
             this.Pic_pin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -653,7 +773,7 @@
             this.pictureBox3.BackgroundImage = global::Tango_Browser.Properties.Resources.UrlBoxRight;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox3.Location = new System.Drawing.Point(944, 7);
+            this.pictureBox3.Location = new System.Drawing.Point(895, 8);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(20, 35);
             this.pictureBox3.TabIndex = 9;
@@ -671,23 +791,13 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
-            this.pictureBox15.Location = new System.Drawing.Point(209, 7);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(739, 36);
-            this.pictureBox15.TabIndex = 25;
-            this.pictureBox15.TabStop = false;
-            // 
             // Main_Tab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Tango_Browser.Properties.Settings.Default.FormBackGround;
             this.ClientSize = new System.Drawing.Size(1108, 882);
+            this.Controls.Add(this.pictureBox16);
             this.Controls.Add(this.Address_textBox);
             this.Controls.Add(this.pictureBox15);
             this.Controls.Add(this.pictureBox4);
@@ -725,10 +835,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.Profile.ResumeLayout(false);
+            this.Profile.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.settingBox.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_pin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_load)).EndInit();
@@ -737,7 +853,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pic_back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -789,5 +904,13 @@
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.ListView pinnedList;
         private System.Windows.Forms.ListView histListt;
+        private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.GroupBox Profile;
+        private System.Windows.Forms.Label charlieValue;
+        private System.Windows.Forms.Label UserEmail;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.LinkLabel UserName;
+        private System.Windows.Forms.PictureBox editProfile;
     }
 }

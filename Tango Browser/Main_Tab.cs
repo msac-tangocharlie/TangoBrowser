@@ -29,17 +29,17 @@ namespace Tango_Browser
             req.PersistSessionCookies = false;
             incogBrowse = new CefSharp.WinForms.ChromiumWebBrowser("www.google.com");
             incogBrowse.RequestContext = new RequestContext(req);
-
+           
             // chromiumBrowser.Load("www.google.com");
             // chromiumBrowser.LoadUrlWithPostData(System.IO.Path.GetFullPath("index.html"));
-            chromiumBrowser.Load(System.IO.Path.GetFullPath("index.html"));
+            chromiumBrowser.Load(System.IO.Path.GetFullPath("../../index.html"));
             panel2.Controls.Add(chromiumBrowser);
             chromiumBrowser.Parent = panel2;
             chromiumBrowser.Dock = DockStyle.Fill;
             chromiumBrowser.MenuHandler = new MyCustomMenuHandler();
             chromiumBrowser.DownloadHandler = new DownloadHandler(downPercent,pictureBox5,pictureBox7);
             chromiumBrowser.LifeSpanHandler = new MyLifeHandler();
-            chromiumBrowser.Load("about:blank");
+            /*chromiumBrowser.Load("about:blank");*/
             Address_textBox.Text = chromiumBrowser.Address;
             TextBox.CheckForIllegalCrossThreadCalls = false;
         }
@@ -247,7 +247,7 @@ namespace Tango_Browser
                 Pic_pin.Image = Resources.pinned;
                 pinned = true;
             }
-            
+           
 
         }
 
@@ -255,6 +255,9 @@ namespace Tango_Browser
         {
             Pic_load.Image = Resources.cancel;
             siteLoading.Value = 40;
+            Properties.Settings.Default.Charlie = Properties.Settings.Default.Charlie + 1;
+            Properties.Settings.Default.Save();
+            
         }
 
         private void chromiumBrowser_TitleChanged_1(object sender, TitleChangedEventArgs e)
@@ -274,6 +277,9 @@ namespace Tango_Browser
                     hist.InsertOne(doc);
                 }
             }
+            Properties.Settings.Default.Charlie = Properties.Settings.Default.Charlie + 1;
+            Properties.Settings.Default.Save();
+            charlieValue.Text = Properties.Settings.Default.Charlie.ToString();
         }
 
         private void chromiumBrowser_AddressChanged(object sender, AddressChangedEventArgs e)
@@ -670,6 +676,46 @@ namespace Tango_Browser
                 panel2.Controls.Remove(histListt);
                 panel2.Controls.Add(incogBrowse);
             }
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+            if (Profile.Visible)
+            {
+                Profile.Visible = false;
+            }
+            else
+            {
+                UserName.Text = Properties.Settings.Default.Username;
+                UserEmail.Text = Properties.Settings.Default.Username;
+                Profile.Visible = true;
+            }
+        }
+
+        private void Profile_Enter(object sender, EventArgs e)
+        {
+
+        }
+        bool isProfileSet = false;
+        private void editProfile_Click(object sender, EventArgs e)
+        {
+            UserProfileSettings ups = new UserProfileSettings();
+            ups.Tag = this;
+            if (!isProfileSet)
+            {
+                ups.Show(this);
+                isProfileSet = true;
+            }
+            else
+            {
+                ups.Hide();
+                isProfileSet = false;
+                UserName.Text = Properties.Settings.Default.Username;
+                UserEmail.Text = Properties.Settings.Default.Username;
+            }
+           
+            
+            
         }
     }
 }
