@@ -1,0 +1,134 @@
+.head {
+    width: 1024px;
+    height: 80px;
+    margin: 0 auto;
+    font-size: 36px;
+    text-align: center;
+    padding-top: 20px;
+    color: white;
+    font-family: 'Henny Penny', cursive;
+    font-size: 70px;
+}
+
+#weather {
+    padding-left: 50px;
+}
+
+/* .shortcutKeys #bookmarksButton {
+    float: right;
+    margin-right: 20px;
+    width: 90px;
+    height: 30px;
+    background-color: transparent;
+    border: 1.5px solid;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.shortcutKeys #bookmarksButton:hover {
+    background-color: #7dffe9;
+    color: #ff0000;
+}
+
+.shortcutKeys #favouritsButton {
+    float: right;
+    margin-right: 20px;
+    width: 80px;
+    height: 30px;
+    background-color: transparent;
+    border: 1.5px solid;
+    color: white;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+.shortcutKeys #favouritsButton:hover {
+    background-color: #fffb0f;
+    color: blue;
+} */
+
+.searchBar {
+    width: 1024px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 80px;
+    color: white;
+}
+
+.searchBar #searchVal {
+    border-radius: 10px;
+}
+
+.searchBar img {
+    margin-top: 3px;
+    margin-left: 7px;
+    float: left;
+}
+
+.searchBar #searchVal {
+    width: 750px;
+    height: 30px;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: 1.5px solid;
+    font-size: 18px;
+    background-color: transparent;
+}
+
+.searchBar #searchButton {
+    width: 80px;
+    height: 30px;
+    background-color: transparent;
+    border: 1.5px solid;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.searchBar #searchButton:hover {
+    background-color: #daa2ff;
+}
+
+.siteBox {
+    width: 1024px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 30px;
+    color: white;
+}
+
+.siteBox #box {
+    width: 300px;
+    height: 470px;
+    float: left;
+    margin-left: 30px;
+    color: white;
+    text-align: center;
+
+}
+
+.siteBox #box a {
+    font-size: 20px;
+    color: white;
+}
+
+.websiteCards {
+    padding-top: 100px;
+    margin-left: 23%;
+}
+
+#amazonCard,
+#wpCard,
+#fbCard,
+#igCard,
+#githubCard {
+    padding: 30px;
+}
+
+.websiteCards img {
+    border-radius: 10px;
+}
