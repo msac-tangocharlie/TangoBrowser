@@ -1,61 +1,62 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<title>Tango</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Tango</title>
 
-	<link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
-	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-	<link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body style="background: url(./picture/background.jpg);">
-	<div class="head">
-		Tango
-	</div>
-	<!-- <div class="shortcutKeys">
-		<input type="submit" value="Bookmarks" id="bookmarksButton" onclick="">
-		<input type="submit" value="Favourits" id="favouritsButton" onclick="">
-	</div> -->
-	<div>
-		<a id="weather" href="https://www.booked.net/weather/hasnabad-527758"><img
-				src="https://w.bookcdn.com/weather/picture/1_527758_1_1_137AE9_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=59451"
-				alt="booked.net" /></a>
-	</div>
+    <div class="head">
+        Tango
+    </div>
+    <!-- <div class="shortcutKeys">
+        <input type="submit" value="Bookmarks" id="bookmarksButton" onclick="">
+        <input type="submit" value="Favourits" id="favouritsButton" onclick="">
+    </div> -->
+    <div>
+        <a id="weather" href="https://www.booked.net/weather/hasnabad-527758">
+            <img src="https://w.bookcdn.com/weather/picture/1_527758_1_1_137AE9_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=59451"
+                 alt="booked.net" />
+        </a>
+    </div>
 
-	<div class="searchBar">
-		<img id="googleLogo" src="./picture/google.png" alt="Google" />
-		<form accept-charset="utf-8">
-			<input type="text" value="" name="searchValue" id="searchVal" autocomplete="off" />
-			<input type="submit" value="Search" id="searchButton" onclick="search()">
-		</form>
-		<script language="javascript" charset="utf-8">
-			function search() {
-				var searchValues = document.getElementById("searchVal").value;
-				window.open("https://www.google.com/search?q=" + searchValues);
-			}
-		</script>
-	</div>
+    <div class="searchBar">
+        <img id="googleLogo" src="./picture/google.png" alt="Google" />
+        <form accept-charset="utf-8">
+            <input type="text" value="" name="searchValue" id="searchVal" autocomplete="off" />
+            <input type="submit" value="Search" id="searchButton" onclick="search()">
+        </form>
+        <script language="javascript" charset="utf-8">
+            function search() {
+            var searchValues = document.getElementById("searchVal").value;
+            window.open("https://www.google.com/search?q=" + searchValues);
+            }
+        </script>
+    </div>
 
-	<!-- cards section -->
-	<div>
-		<div class="websiteCards">
-			<a id="amazonCard" href="https://amazon.in">
-				<img alt="Amazon Logo" height="100px" width="100px" src="picture/Amazon.jpg" />
-			</a>
-			<a id="wpCard" href="https://web.whatsapp.com/">
-				<img alt="WhatsApp Logo" height="100px" width="100px" src="picture/Whatsapp.jpg" />
-			</a>
-			<a id="fbCard" href="https://www.facebook.com/">
-				<img alt="FaceBook Logo" height="100px" width="100px" src="picture/Facebook.jpg" />
-			</a>
-			<a id="igCard" href="https://www.instagram.com/">
-				<img alt="Instagram Logo" height="100px" width="100px" src="picture/Instagram.jpg" />
-			</a>
-			<a id="githubCard" href="https://www.github.com/">
-				<img alt="Github Logo" height="100px" width="100px" src="picture/Github.jpg" />
-			</a>
-		</div>
-	</div>
+    <!-- cards section -->
+    <div>
+        <div class="websiteCards">
+            <a id="amazonCard" href="https://amazon.in">
+                <img alt="Amazon Logo" height="100px" width="100px" src="picture/Amazon.jpg" />
+            </a>
+            <a id="wpCard" href="https://web.whatsapp.com/">
+                <img alt="WhatsApp Logo" height="100px" width="100px" src="picture/Whatsapp.jpg" />
+            </a>
+            <a id="fbCard" href="https://www.facebook.com/">
+                <img alt="FaceBook Logo" height="100px" width="100px" src="picture/Facebook.jpg" />
+            </a>
+            <a id="igCard" href="https://www.instagram.com/">
+                <img alt="Instagram Logo" height="100px" width="100px" src="picture/Instagram.jpg" />
+            </a>
+            <a id="githubCard" href="https://www.github.com/">
+                <img alt="Github Logo" height="100px" width="100px" src="picture/Github.jpg" />
+            </a>
+        </div>
+    </div>

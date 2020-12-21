@@ -269,6 +269,12 @@
     <Compile Include="Starred.Designer.cs">
       <DependentUpon>Starred.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserProfileSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserProfileSettings.Designer.cs">
+      <DependentUpon>UserProfileSettings.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AppContainer.resx">
       <DependentUpon>AppContainer.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,6 +297,9 @@
     <EmbeddedResource Include="Starred.resx">
       <DependentUpon>Starred.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserProfileSettings.resx">
+      <DependentUpon>UserProfileSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -310,6 +319,9 @@
     <Content Include="Core\Compression\Snappy\lib\win\snappy64.dll" />
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="DefaultIcon.ico" />
+    <Content Include="index.html" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\avatar.png" />
     <None Include="Resources\Adblock_dis.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\pinlist.png" />
