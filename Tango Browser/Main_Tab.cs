@@ -18,7 +18,8 @@ namespace Tango_Browser
     public partial class Main_Tab : Form
     {
         MongoClient dbClient = new MongoClient("mongodb://localhost:27017/");
-        
+        //String homepageUrl = "System.IO.Path.GetFullPath("index.html")";
+
 
         public Main_Tab()
         {
@@ -28,8 +29,10 @@ namespace Tango_Browser
             req.PersistSessionCookies = false;
             incogBrowse = new CefSharp.WinForms.ChromiumWebBrowser("www.google.com");
             incogBrowse.RequestContext = new RequestContext(req);
-            
-            chromiumBrowser.Load("www.google.com");
+
+            // chromiumBrowser.Load("www.google.com");
+            // chromiumBrowser.LoadUrlWithPostData(System.IO.Path.GetFullPath("index.html"));
+            chromiumBrowser.Load(System.IO.Path.GetFullPath("index.html"));
             panel2.Controls.Add(chromiumBrowser);
             chromiumBrowser.Parent = panel2;
             chromiumBrowser.Dock = DockStyle.Fill;
