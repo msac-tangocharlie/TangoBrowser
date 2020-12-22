@@ -29,7 +29,9 @@ namespace Tango_Browser
             this.UserEmail.Text = Properties.Settings.Default.UserEmailVal;
             this.setUseremail.Text = Properties.Settings.Default.UserEmailVal;
             this.setUsername.Text = Properties.Settings.Default.UserNameVal;
-
+            this.ProfileUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
+            this.setUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
+            this.pictureBox16.Image = Image.FromFile(Properties.Settings.Default.UserDP);
 
 
             RequestContextSettings req = new RequestContextSettings();
@@ -750,14 +752,20 @@ namespace Tango_Browser
                 {
 
                     Properties.Settings.Default.UserDP = DPSelect.FileName;
-                    ProfileUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
-                    setUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
-                    pictureBox16.Image= Image.FromFile(Properties.Settings.Default.UserDP);
+                    Properties.Settings.Default.Save();
+                    this.ProfileUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
+                    this.setUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
+                    this.pictureBox16.Image= Image.FromFile(Properties.Settings.Default.UserDP);
                     Console.WriteLine(DPSelect.FileName);
                 }
             }
             
            
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            editProfile_Click(sender, e);
         }
     }
 }
