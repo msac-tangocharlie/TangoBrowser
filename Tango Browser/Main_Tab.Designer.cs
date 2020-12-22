@@ -52,12 +52,24 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ProfileSettings = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.UserEmailText = new System.Windows.Forms.TextBox();
+            this.UsernameText = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.setUseremail = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.setUsername = new System.Windows.Forms.LinkLabel();
+            this.setUserDP = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.Profile = new System.Windows.Forms.GroupBox();
             this.editProfile = new System.Windows.Forms.PictureBox();
             this.charlieValue = new System.Windows.Forms.Label();
             this.UserEmail = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.ProfileUserDP = new System.Windows.Forms.PictureBox();
             this.UserName = new System.Windows.Forms.LinkLabel();
             this.histListt = new System.Windows.Forms.ListView();
             this.pinnedList = new System.Windows.Forms.ListView();
@@ -82,6 +94,7 @@
             this.Pic_back = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DPSelect = new System.Windows.Forms.OpenFileDialog();
             this.findbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -96,9 +109,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel2.SuspendLayout();
+            this.ProfileSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.setUserDP)).BeginInit();
             this.Profile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editProfile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfileUserDP)).BeginInit();
             this.settingBox.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -402,6 +417,7 @@
             this.panel2.AutoScroll = true;
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.ProfileSettings);
             this.panel2.Controls.Add(this.Profile);
             this.panel2.Controls.Add(this.histListt);
             this.panel2.Controls.Add(this.pinnedList);
@@ -416,6 +432,137 @@
             this.panel2.Size = new System.Drawing.Size(1109, 870);
             this.panel2.TabIndex = 19;
             // 
+            // ProfileSettings
+            // 
+            this.ProfileSettings.Controls.Add(this.button3);
+            this.ProfileSettings.Controls.Add(this.button4);
+            this.ProfileSettings.Controls.Add(this.UserEmailText);
+            this.ProfileSettings.Controls.Add(this.UsernameText);
+            this.ProfileSettings.Controls.Add(this.label5);
+            this.ProfileSettings.Controls.Add(this.setUseremail);
+            this.ProfileSettings.Controls.Add(this.label7);
+            this.ProfileSettings.Controls.Add(this.label8);
+            this.ProfileSettings.Controls.Add(this.setUsername);
+            this.ProfileSettings.Controls.Add(this.setUserDP);
+            this.ProfileSettings.Controls.Add(this.label9);
+            this.ProfileSettings.Location = new System.Drawing.Point(293, 13);
+            this.ProfileSettings.Name = "ProfileSettings";
+            this.ProfileSettings.Size = new System.Drawing.Size(416, 437);
+            this.ProfileSettings.TabIndex = 28;
+            this.ProfileSettings.TabStop = false;
+            this.ProfileSettings.Text = "Profile Settings";
+            this.ProfileSettings.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.ForeColor = System.Drawing.Color.Maroon;
+            this.button3.Location = new System.Drawing.Point(166, 380);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(91, 35);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Save";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Location = new System.Drawing.Point(140, 251);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(100, 30);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Choose";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // UserEmailText
+            // 
+            this.UserEmailText.Location = new System.Drawing.Point(141, 328);
+            this.UserEmailText.Name = "UserEmailText";
+            this.UserEmailText.Size = new System.Drawing.Size(247, 30);
+            this.UserEmailText.TabIndex = 5;
+            // 
+            // UsernameText
+            // 
+            this.UsernameText.Location = new System.Drawing.Point(141, 291);
+            this.UsernameText.Name = "UsernameText";
+            this.UsernameText.Size = new System.Drawing.Size(248, 30);
+            this.UsernameText.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(34, 258);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 18);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Profile PIcture:";
+            // 
+            // setUseremail
+            // 
+            this.setUseremail.BackColor = System.Drawing.Color.Transparent;
+            this.setUseremail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.setUseremail.ForeColor = System.Drawing.Color.Gray;
+            this.setUseremail.Location = new System.Drawing.Point(78, 203);
+            this.setUseremail.Name = "setUseremail";
+            this.setUseremail.Size = new System.Drawing.Size(283, 33);
+            this.setUseremail.TabIndex = 3;
+            this.setUseremail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(89, 333);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 18);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Email:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(154, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(142, 25);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Profile Settings";
+            // 
+            // setUsername
+            // 
+            this.setUsername.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.setUsername.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.setUsername.Location = new System.Drawing.Point(111, 169);
+            this.setUsername.Name = "setUsername";
+            this.setUsername.Size = new System.Drawing.Size(215, 44);
+            this.setUsername.TabIndex = 0;
+            this.setUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // setUserDP
+            // 
+            this.setUserDP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.setUserDP.Image = ((System.Drawing.Image)(resources.GetObject("setUserDP.Image")));
+            this.setUserDP.Location = new System.Drawing.Point(159, 41);
+            this.setUserDP.Name = "setUserDP";
+            this.setUserDP.Size = new System.Drawing.Size(125, 125);
+            this.setUserDP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.setUserDP.TabIndex = 1;
+            this.setUserDP.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(24, 294);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(115, 18);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "User Full Name:";
+            // 
             // Profile
             // 
             this.Profile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -423,7 +570,7 @@
             this.Profile.Controls.Add(this.charlieValue);
             this.Profile.Controls.Add(this.UserEmail);
             this.Profile.Controls.Add(this.label1);
-            this.Profile.Controls.Add(this.pictureBox17);
+            this.Profile.Controls.Add(this.ProfileUserDP);
             this.Profile.Controls.Add(this.UserName);
             this.Profile.Location = new System.Drawing.Point(730, 8);
             this.Profile.Name = "Profile";
@@ -476,16 +623,17 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Charlies:";
             // 
-            // pictureBox17
+            // ProfileUserDP
             // 
-            this.pictureBox17.BackgroundImage = global::Tango_Browser.Properties.Resources.avatar;
-            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox17.ErrorImage = global::Tango_Browser.Properties.Resources.avatar;
-            this.pictureBox17.Location = new System.Drawing.Point(16, 46);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(125, 125);
-            this.pictureBox17.TabIndex = 1;
-            this.pictureBox17.TabStop = false;
+            this.ProfileUserDP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ProfileUserDP.ErrorImage = global::Tango_Browser.Properties.Resources.avatar;
+            this.ProfileUserDP.Image = ((System.Drawing.Image)(resources.GetObject("ProfileUserDP.Image")));
+            this.ProfileUserDP.Location = new System.Drawing.Point(16, 46);
+            this.ProfileUserDP.Name = "ProfileUserDP";
+            this.ProfileUserDP.Size = new System.Drawing.Size(125, 125);
+            this.ProfileUserDP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ProfileUserDP.TabIndex = 1;
+            this.ProfileUserDP.TabStop = false;
             // 
             // UserName
             // 
@@ -656,12 +804,13 @@
             // 
             this.pictureBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox16.BackgroundImage = global::Tango_Browser.Properties.Resources.avatar;
             this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox16.ErrorImage = global::Tango_Browser.Properties.Resources.avatar;
+            this.pictureBox16.Image = global::Tango_Browser.Properties.Resources.avatar;
             this.pictureBox16.Location = new System.Drawing.Point(1056, 3);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox16.TabIndex = 27;
             this.pictureBox16.TabStop = false;
             this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
@@ -791,6 +940,16 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // DPSelect
+            // 
+            this.DPSelect.AddExtension = false;
+            this.DPSelect.DefaultExt = "\"jpg\"";
+            this.DPSelect.FileName = "openFileDialog1";
+            this.DPSelect.Filter = "Image|*.jpg";
+            this.DPSelect.InitialDirectory = "@\"C:\\\"";
+            this.DPSelect.RestoreDirectory = true;
+            this.DPSelect.Title = "Select Profile Picture";
+            // 
             // Main_Tab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -835,10 +994,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.ProfileSettings.ResumeLayout(false);
+            this.ProfileSettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.setUserDP)).EndInit();
             this.Profile.ResumeLayout(false);
             this.Profile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editProfile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfileUserDP)).EndInit();
             this.settingBox.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -909,8 +1071,21 @@
         private System.Windows.Forms.Label charlieValue;
         private System.Windows.Forms.Label UserEmail;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.PictureBox ProfileUserDP;
         private System.Windows.Forms.LinkLabel UserName;
         private System.Windows.Forms.PictureBox editProfile;
+        private System.Windows.Forms.GroupBox ProfileSettings;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox UserEmailText;
+        private System.Windows.Forms.TextBox UsernameText;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label setUseremail;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.LinkLabel setUsername;
+        private System.Windows.Forms.PictureBox setUserDP;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.OpenFileDialog DPSelect;
     }
 }
