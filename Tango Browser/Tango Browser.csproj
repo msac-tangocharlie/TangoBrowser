@@ -269,12 +269,6 @@
     <Compile Include="Starred.Designer.cs">
       <DependentUpon>Starred.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserProfileSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserProfileSettings.Designer.cs">
-      <DependentUpon>UserProfileSettings.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AppContainer.resx">
       <DependentUpon>AppContainer.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,9 +290,6 @@
     </Compile>
     <EmbeddedResource Include="Starred.resx">
       <DependentUpon>Starred.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserProfileSettings.resx">
-      <DependentUpon>UserProfileSettings.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

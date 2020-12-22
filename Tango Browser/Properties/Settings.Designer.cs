@@ -38,9 +38,9 @@ namespace Tango_Browser.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Charlie {
+        public double Charlie {
             get {
-                return ((int)(this["Charlie"]));
+                return ((double)(this["Charlie"]));
             }
             set {
                 this["Charlie"] = value;
@@ -49,37 +49,37 @@ namespace Tango_Browser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Set Name")]
-        public string Username {
-            get {
-                return ((string)(this["Username"]));
-            }
-            set {
-                this["Username"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Set Email")]
-        public string Email {
+        public string UserEmailVal {
             get {
-                return ((string)(this["Email"]));
+                return ((string)(this["UserEmailVal"]));
             }
             set {
-                this["Email"] = value;
+                this["UserEmailVal"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Profile {
+        [global::System.Configuration.DefaultSettingValueAttribute("Set Name")]
+        public string UserNameVal {
             get {
-                return ((string)(this["Profile"]));
+                return ((string)(this["UserNameVal"]));
             }
             set {
-                this["Profile"] = value;
+                this["UserNameVal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/Resources/avatar.png")]
+        public string UserDP {
+            get {
+                return ((string)(this["UserDP"]));
+            }
+            set {
+                this["UserDP"] = value;
             }
         }
     }

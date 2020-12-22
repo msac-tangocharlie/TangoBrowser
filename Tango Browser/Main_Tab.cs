@@ -24,6 +24,16 @@ namespace Tango_Browser
         public Main_Tab()
         {
             InitializeComponent();
+
+            this.UserName.Text = Properties.Settings.Default.UserNameVal;
+            this.UserEmail.Text = Properties.Settings.Default.UserEmailVal;
+            this.setUseremail.Text = Properties.Settings.Default.UserEmailVal;
+            this.setUsername.Text = Properties.Settings.Default.UserNameVal;
+            this.ProfileUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
+            this.setUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
+            this.pictureBox16.Image = Image.FromFile(Properties.Settings.Default.UserDP);
+
+
             RequestContextSettings req = new RequestContextSettings();
             req.CachePath = "";
             req.PersistSessionCookies = false;
@@ -277,7 +287,7 @@ namespace Tango_Browser
                     hist.InsertOne(doc);
                 }
             }
-            Properties.Settings.Default.Charlie = Properties.Settings.Default.Charlie + 1;
+            Properties.Settings.Default.Charlie = Properties.Settings.Default.Charlie + 0.05;
             Properties.Settings.Default.Save();
             charlieValue.Text = Properties.Settings.Default.Charlie.ToString();
         }
@@ -428,7 +438,7 @@ namespace Tango_Browser
                 pictureBox4.Image = Resources.on1;
                 panel = 1;
                 panel1.Visible = true;
-                panel2.Padding = new Padding(60, 0, 0, 0);
+                panel2.Padding = new Padding(70, 0, 0, 0);
             }
             else
             {
@@ -686,8 +696,7 @@ namespace Tango_Browser
             }
             else
             {
-                UserName.Text = Properties.Settings.Default.Username;
-                UserEmail.Text = Properties.Settings.Default.Username;
+                
                 Profile.Visible = true;
             }
         }
@@ -699,23 +708,64 @@ namespace Tango_Browser
         bool isProfileSet = false;
         private void editProfile_Click(object sender, EventArgs e)
         {
-            UserProfileSettings ups = new UserProfileSettings();
-            ups.Tag = this;
+           
             if (!isProfileSet)
             {
-                ups.Show(this);
+                this.UserEmailText.Text = Properties.Settings.Default.UserEmailVal;
+                this.UsernameText.Text = Properties.Settings.Default.UserNameVal;
+                ProfileSettings.Visible = true;
+                Profile.Visible = false;
                 isProfileSet = true;
             }
             else
             {
-                ups.Hide();
+                ProfileSettings.Visible = false;
                 isProfileSet = false;
-                UserName.Text = Properties.Settings.Default.Username;
-                UserEmail.Text = Properties.Settings.Default.Username;
+            
             }
            
             
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            Properties.Settings.Default.UserEmailVal = UserEmailText.Text;
+            Properties.Settings.Default.UserNameVal = UsernameText.Text;
+            Properties.Settings.Default.Save();
+            this.UserName.Text = Properties.Settings.Default.UserNameVal;
+            this.UserEmail.Text = Properties.Settings.Default.UserEmailVal;
+            this.setUseremail.Text = Properties.Settings.Default.UserEmailVal;
+            this.setUsername.Text= Properties.Settings.Default.UserNameVal;
+            Properties.Settings.Default.Save();
+            Profile.Visible = true;
+            ProfileSettings.Visible = false;
+            isProfileSet = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(DPSelect.ShowDialog() == DialogResult.OK)
+            {
+                if (DPSelect.CheckFileExists == true && DPSelect.CheckPathExists == true)
+                {
+
+                    Properties.Settings.Default.UserDP = DPSelect.FileName;
+                    Properties.Settings.Default.Save();
+                    this.ProfileUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
+                    this.setUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
+                    this.pictureBox16.Image= Image.FromFile(Properties.Settings.Default.UserDP);
+                    Console.WriteLine(DPSelect.FileName);
+                }
+            }
+            
+           
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            editProfile_Click(sender, e);
         }
     }
 }
