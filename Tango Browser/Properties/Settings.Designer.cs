@@ -34,5 +34,53 @@ namespace Tango_Browser.Properties {
                 this["FormBackGround"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double Charlie {
+            get {
+                return ((double)(this["Charlie"]));
+            }
+            set {
+                this["Charlie"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Set Email")]
+        public string UserEmailVal {
+            get {
+                return ((string)(this["UserEmailVal"]));
+            }
+            set {
+                this["UserEmailVal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Set Name")]
+        public string UserNameVal {
+            get {
+                return ((string)(this["UserNameVal"]));
+            }
+            set {
+                this["UserNameVal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/Resources/avatar.png")]
+        public string UserDP {
+            get {
+                return ((string)(this["UserDP"]));
+            }
+            set {
+                this["UserDP"] = value;
+            }
+        }
     }
 }

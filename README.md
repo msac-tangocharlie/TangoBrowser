@@ -3,11 +3,15 @@ Web Browser made in CEFsharp framework with the MongoDB Database.
 
 # Features
 - History
-- Bookmarks
+- Pin Pages
+- Incognito Mode
+- Panel for shortcuts
 - DevTools
-- VideoCall Support
+- Find in Page
+- Color Customization
+- Personal Profile
 - Restored Session
-- Supoorts New Websites
+- Supports New Websites
 
 # Contributers 
 [![Forkers repo roster for @msac-tangocharlie/TangoBrowser](https://reporoster.com/forks/msac-tangocharlie/TangoBrowser)](https://github.com/msac-tangocharlie/TangoBrowser/network/members)

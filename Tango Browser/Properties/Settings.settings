@@ -5,5 +5,17 @@
     <Setting Name="FormBackGround" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">White</Value>
     </Setting>
+    <Setting Name="Charlie" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="UserEmailVal" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Set Email</Value>
+    </Setting>
+    <Setting Name="UserNameVal" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Set Name</Value>
+    </Setting>
+    <Setting Name="UserDP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/Resources/avatar.png</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
