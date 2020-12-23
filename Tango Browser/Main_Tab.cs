@@ -37,9 +37,8 @@ namespace Tango_Browser
             RequestContextSettings req = new RequestContextSettings();
             req.CachePath = "";
             req.PersistSessionCookies = false;
-            incogBrowse = new CefSharp.WinForms.ChromiumWebBrowser("www.google.com");
-            incogBrowse.RequestContext = new RequestContext(req);
-           
+            /*incogBrowse = new CefSharp.WinForms.ChromiumWebBrowser("www.google.com");*/
+            
             // chromiumBrowser.Load("www.google.com");
             // chromiumBrowser.LoadUrlWithPostData(System.IO.Path.GetFullPath("index.html"));
             chromiumBrowser.Load(System.IO.Path.GetFullPath("../../index.html"));
@@ -52,6 +51,13 @@ namespace Tango_Browser
             /*chromiumBrowser.Load("about:blank");*/
             Address_textBox.Text = chromiumBrowser.Address;
             TextBox.CheckForIllegalCrossThreadCalls = false;
+            incogBrowse.RequestContext = new RequestContext(req);
+            incogBrowse.Parent = panel2;
+            incogBrowse.Dock = DockStyle.Fill;
+            incogBrowse.MenuHandler = new MyCustomMenuHandler();
+            incogBrowse.DownloadHandler = new DownloadHandler(downPercent, pictureBox5, pictureBox7);
+            incogBrowse.LifeSpanHandler = new MyLifeHandler();
+
         }
 
         private void Address_textBox_KeyDown(object sender, KeyEventArgs e)
@@ -766,6 +772,11 @@ namespace Tango_Browser
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             editProfile_Click(sender, e);
+        }
+
+        private void incogBrowse_TitleChanged(object sender, TitleChangedEventArgs e)
+        {
+            Text = e.Title;
         }
     }
 }
