@@ -17,5 +17,11 @@
     <Setting Name="UserDP" Type="System.String" Scope="User">
       <Value Profile="(Default)">/Resources/avatar.png</Value>
     </Setting>
+    <Setting Name="isDark" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="isPanelOn" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

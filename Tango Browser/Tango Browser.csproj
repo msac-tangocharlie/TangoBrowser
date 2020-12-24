@@ -252,6 +252,7 @@
       <DependentUpon>AppContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="DownloadHandler.cs" />
+    <Compile Include="ExtensionHandler.cs" />
     <Compile Include="Main_Tab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +312,8 @@
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="DefaultIcon.ico" />
     <Content Include="index.html" />
+    <None Include="Resources\Darkoff.png" />
+    <None Include="Resources\Darkon.png" />
     <None Include="Resources\edit.png" />
     <None Include="Resources\avatar.png" />
     <None Include="Resources\Adblock_dis.png" />

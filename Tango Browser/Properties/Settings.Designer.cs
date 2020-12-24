@@ -82,5 +82,29 @@ namespace Tango_Browser.Properties {
                 this["UserDP"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isDark {
+            get {
+                return ((bool)(this["isDark"]));
+            }
+            set {
+                this["isDark"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool isPanelOn {
+            get {
+                return ((bool)(this["isPanelOn"]));
+            }
+            set {
+                this["isPanelOn"] = value;
+            }
+        }
     }
 }
