@@ -12,6 +12,7 @@ Web Browser made in CEFsharp framework with the MongoDB Database.
 - Personal Profile
 - Restored Session
 - Supports New Websites
+- Dark Mode
 
 # Contributers 
 [![Forkers repo roster for @msac-tangocharlie/TangoBrowser](https://reporoster.com/forks/msac-tangocharlie/TangoBrowser)](https://github.com/msac-tangocharlie/TangoBrowser/network/members)
