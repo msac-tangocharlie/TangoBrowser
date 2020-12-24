@@ -24,8 +24,23 @@ namespace Tango_Browser
         public Main_Tab()
         {
             InitializeComponent();
-
-            this.UserName.Text = Properties.Settings.Default.UserNameVal;
+            if (Properties.Settings.Default.isPanelOn)
+            {
+                pictureBox4.Image = Resources.on1;
+                panel1.Visible = true;
+                panel2.Padding = new Padding(70, 0, 0, 0);
+            }
+            else
+            {
+                pictureBox4.Image = Resources.off;
+                panel1.Visible = false;
+                panel2.Padding = new Padding(0, 0, 0, 0);
+            }
+            if (Properties.Settings.Default.isDark)
+            {
+                pictureBox17.Image = Resources.Darkon;
+            }
+                this.UserName.Text = Properties.Settings.Default.UserNameVal;
             this.UserEmail.Text = Properties.Settings.Default.UserEmailVal;
             this.setUseremail.Text = Properties.Settings.Default.UserEmailVal;
             this.setUsername.Text = Properties.Settings.Default.UserNameVal;
@@ -237,10 +252,11 @@ namespace Tango_Browser
             Address_textBox.SelectAll();
         }
 
-       
         
+         
         private async void chromiumBrowser_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
         {
+            
             Address_textBox.Text = chromiumBrowser.Address;
             if (e.IsLoading)
             {
@@ -250,8 +266,33 @@ namespace Tango_Browser
             }
         }
 
-        private void chromiumBrowser_FrameLoadEnd_1(object sender, FrameLoadEndEventArgs e)
+        async private void chromiumBrowser_FrameLoadEnd_1(object sender, FrameLoadEndEventArgs e)
         {
+
+
+
+
+
+            /*Console.WriteLine("cef-" + e.Url);
+
+            if (e.Frame.IsMain)
+            {
+                string HTML = await e.Frame.GetSourceAsync();
+                Console.WriteLine(HTML);
+            }*/
+            /*if (isExten)
+            {}*/
+            if (Properties.Settings.Default.isDark)
+            {
+                String script1 = "var elements = document.getElementsByTagName('*'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = '#a6a6a6';}";
+                String script2 = "var elements = document.getElementsByTagName('a'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = 'green';}";
+
+                String script3 = "document.body.style.backgroundColor='#222';";
+                e.Frame.ExecuteJavaScriptAsync(script1);
+                e.Frame.ExecuteJavaScriptAsync(script2);
+                e.Frame.ExecuteJavaScriptAsync(script3);
+            }
+
             siteLoading.Value = 100;
             Address_textBox.Text = chromiumBrowser.Address;
             Pic_load.Image = Resources.refresh;
@@ -267,8 +308,11 @@ namespace Tango_Browser
 
         }
 
-        private void chromiumBrowser_FrameLoadStart(object sender, FrameLoadStartEventArgs e)
+        async private void chromiumBrowser_FrameLoadStart(object sender, FrameLoadStartEventArgs e)
         {
+           
+           
+
             Pic_load.Image = Resources.cancel;
             siteLoading.Value = 40;
             Properties.Settings.Default.Charlie = Properties.Settings.Default.Charlie + 1;
@@ -291,11 +335,17 @@ namespace Tango_Browser
                         { "user_id","1"}
                     };
                     hist.InsertOne(doc);
+                    doc = new BsonDocument
+                    {
+                        {"url", ""},
+                        { "user_id","1"}
+                    };
+                    hist.InsertOne(doc);
                 }
             }
             Properties.Settings.Default.Charlie = Properties.Settings.Default.Charlie + 0.05;
             Properties.Settings.Default.Save();
-            charlieValue.Text = Properties.Settings.Default.Charlie.ToString();
+            charlieValue.Text = Math.Round( Properties.Settings.Default.Charlie,2).ToString();
         }
 
         private void chromiumBrowser_AddressChanged(object sender, AddressChangedEventArgs e)
@@ -421,6 +471,15 @@ namespace Tango_Browser
 
         private void incogBrowse_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
         {
+            if (Properties.Settings.Default.isDark)
+            {
+                String script1 = "var elements = document.getElementsByTagName('*'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = '#a6a6a6';}";
+                String script2 = "var elements = document.getElementsByTagName('a'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = 'green';}";
+                String script3 = "document.body.style.backgroundColor='#222';";
+                e.Frame.ExecuteJavaScriptAsync(script1);
+                e.Frame.ExecuteJavaScriptAsync(script2);
+                e.Frame.ExecuteJavaScriptAsync(script3);
+            }
             siteLoading.Value = 100;
             Address_textBox.Text = incogBrowse.Address;
             Pic_load.Image = Resources.refresh;
@@ -436,20 +495,22 @@ namespace Tango_Browser
                 if (val <= 100) siteLoading.Value = val;
             }
         }
-        int panel = 0;
+        
         private void pictureBox4_Click_2(object sender, EventArgs e)
         {
-            if (panel==0)
+            if (!Properties.Settings.Default.isPanelOn)
             {
                 pictureBox4.Image = Resources.on1;
-                panel = 1;
+                Properties.Settings.Default.isPanelOn = true;
+                Properties.Settings.Default.Save();
                 panel1.Visible = true;
                 panel2.Padding = new Padding(70, 0, 0, 0);
             }
             else
             {
                 pictureBox4.Image = Resources.off;
-                panel = 0;
+                Properties.Settings.Default.isPanelOn = false;
+                Properties.Settings.Default.Save();
                 panel1.Visible = false;
                 panel2.Padding = new Padding(0, 0, 0, 0);
             }
@@ -506,10 +567,10 @@ namespace Tango_Browser
                 var hist = db.GetCollection<BsonDocument>("History");
                 var filter = Builders<BsonDocument>.Filter.Eq("user_id", "1");
                 var doc = hist.Find(filter).ToList();
+                
                 foreach (BsonDocument docu in doc)
                 {
-                    histListt.Items.Add(docu.GetValue("url").ToString());
-                    
+                    histListt.Items.Add("Date: \t"+ docu.GetValue("url").ToString());
                 }
                 if (panel2.Contains(incogBrowse))
                 {
@@ -654,10 +715,11 @@ namespace Tango_Browser
                 }
             }
         }
-        
+        bool isExten=true;
         private void pictureBox13_Click(object sender, EventArgs e)
         {
-            
+            if (isExten) isExten = false;
+            else isExten = true;
         }
 
         private void pinnedList_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -744,7 +806,7 @@ namespace Tango_Browser
             this.UserEmail.Text = Properties.Settings.Default.UserEmailVal;
             this.setUseremail.Text = Properties.Settings.Default.UserEmailVal;
             this.setUsername.Text= Properties.Settings.Default.UserNameVal;
-            Properties.Settings.Default.Save();
+            
             Profile.Visible = true;
             ProfileSettings.Visible = false;
             isProfileSet = false;
@@ -777,6 +839,43 @@ namespace Tango_Browser
         private void incogBrowse_TitleChanged(object sender, TitleChangedEventArgs e)
         {
             Text = e.Title;
+        }
+
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.isDark)
+            {
+                Properties.Settings.Default.isDark = false;
+                pictureBox17.Image = Resources.Darkoff;
+                Properties.Settings.Default.Save();
+                if (inco == 1)
+                {
+                    incogBrowse.Reload();
+                }
+                else
+                {
+                    chromiumBrowser.Reload();
+                }
+            }
+            else
+            {
+                Properties.Settings.Default.isDark = true;
+                pictureBox17.Image = Resources.Darkon;
+                Properties.Settings.Default.Save();
+                if (inco == 1)
+                {
+                    incogBrowse.Reload();
+                }
+                else
+                {
+                    chromiumBrowser.Reload();
+                }
+            }
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -40,8 +40,8 @@
             this.find_textbox = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -51,7 +51,9 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.siteLoading = new System.Windows.Forms.ProgressBar();
             this.ProfileSettings = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -74,8 +76,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.siteLoading = new System.Windows.Forms.ProgressBar();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Profile = new System.Windows.Forms.GroupBox();
             this.editProfile = new System.Windows.Forms.PictureBox();
             this.charlieValue = new System.Windows.Forms.Label();
@@ -85,9 +89,8 @@
             this.UserName = new System.Windows.Forms.LinkLabel();
             this.incogBrowse = new CefSharp.WinForms.ChromiumWebBrowser();
             this.chromiumBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.DPSelect = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Pic_pin = new System.Windows.Forms.PictureBox();
             this.Pic_load = new System.Windows.Forms.PictureBox();
             this.Pic_home = new System.Windows.Forms.PictureBox();
@@ -95,12 +98,12 @@
             this.Pic_back = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.DPSelect = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.findbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -109,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.panel2.SuspendLayout();
             this.ProfileSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.setUserDP)).BeginInit();
@@ -117,12 +121,11 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.Profile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfileUserDP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_pin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_load)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_home)).BeginInit();
@@ -130,6 +133,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pic_back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.SuspendLayout();
             // 
             // Address_textBox
@@ -252,8 +256,8 @@
             this.panel1.AutoScroll = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.GhostWhite;
-            this.panel1.Controls.Add(this.pictureBox14);
             this.panel1.Controls.Add(this.pictureBox11);
+            this.panel1.Controls.Add(this.pictureBox16);
             this.panel1.Controls.Add(this.pictureBox13);
             this.panel1.Controls.Add(this.pictureBox12);
             this.panel1.Controls.Add(this.pictureBox10);
@@ -267,20 +271,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(69, 896);
             this.panel1.TabIndex = 18;
-            this.panel1.Visible = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox14.BackgroundImage = global::Tango_Browser.Properties.Resources.settings;
-            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox14.Location = new System.Drawing.Point(12, 366);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox14.TabIndex = 25;
-            this.pictureBox14.TabStop = false;
-            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             // 
             // pictureBox11
             // 
@@ -288,12 +278,26 @@
             this.pictureBox11.BackgroundImage = global::Tango_Browser.Properties.Resources.color;
             this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox11.Location = new System.Drawing.Point(12, 308);
+            this.pictureBox11.Location = new System.Drawing.Point(12, 358);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(48, 48);
             this.pictureBox11.TabIndex = 23;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox16.ErrorImage = global::Tango_Browser.Properties.Resources.avatar;
+            this.pictureBox16.Image = global::Tango_Browser.Properties.Resources.avatar;
+            this.pictureBox16.Location = new System.Drawing.Point(12, 6);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(48, 47);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox16.TabIndex = 27;
+            this.pictureBox16.TabStop = false;
+            this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
             // 
             // pictureBox13
             // 
@@ -301,7 +305,7 @@
             this.pictureBox13.BackgroundImage = global::Tango_Browser.Properties.Resources.Adblock_dis;
             this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox13.Location = new System.Drawing.Point(12, 250);
+            this.pictureBox13.Location = new System.Drawing.Point(12, 301);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(48, 48);
             this.pictureBox13.TabIndex = 24;
@@ -314,7 +318,7 @@
             this.pictureBox12.BackgroundImage = global::Tango_Browser.Properties.Resources.pinlist;
             this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox12.Location = new System.Drawing.Point(12, 191);
+            this.pictureBox12.Location = new System.Drawing.Point(12, 245);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(48, 48);
             this.pictureBox12.TabIndex = 23;
@@ -327,7 +331,7 @@
             this.pictureBox10.BackgroundImage = global::Tango_Browser.Properties.Resources.findText;
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox10.Location = new System.Drawing.Point(12, 75);
+            this.pictureBox10.Location = new System.Drawing.Point(12, 134);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(48, 48);
             this.pictureBox10.TabIndex = 21;
@@ -340,7 +344,7 @@
             this.pictureBox9.BackgroundImage = global::Tango_Browser.Properties.Resources.history_512;
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox9.Location = new System.Drawing.Point(12, 134);
+            this.pictureBox9.Location = new System.Drawing.Point(12, 189);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(48, 48);
             this.pictureBox9.TabIndex = 28;
@@ -353,7 +357,7 @@
             this.pictureBox8.BackgroundImage = global::Tango_Browser.Properties.Resources.inspect;
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox8.Location = new System.Drawing.Point(12, 422);
+            this.pictureBox8.Location = new System.Drawing.Point(12, 414);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(48, 50);
             this.pictureBox8.TabIndex = 21;
@@ -403,13 +407,27 @@
             // 
             this.pictureBox6.Image = global::Tango_Browser.Properties.Resources.Incognito;
             this.pictureBox6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox6.Location = new System.Drawing.Point(12, 17);
+            this.pictureBox6.Location = new System.Drawing.Point(12, 79);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(48, 49);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 25;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox14.BackgroundImage = global::Tango_Browser.Properties.Resources.settings;
+            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox14.Location = new System.Drawing.Point(1055, 2);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(43, 43);
+            this.pictureBox14.TabIndex = 25;
+            this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             // 
             // panel2
             // 
@@ -419,20 +437,31 @@
             this.panel2.AutoScroll = true;
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.siteLoading);
             this.panel2.Controls.Add(this.ProfileSettings);
             this.panel2.Controls.Add(this.histListt);
             this.panel2.Controls.Add(this.pinnedList);
             this.panel2.Controls.Add(this.settingBox);
-            this.panel2.Controls.Add(this.siteLoading);
             this.panel2.Controls.Add(this.findbox);
             this.panel2.Controls.Add(this.Profile);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(0, 44);
+            this.panel2.Location = new System.Drawing.Point(0, 48);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1109, 870);
+            this.panel2.Size = new System.Drawing.Size(1109, 866);
             this.panel2.TabIndex = 19;
+            // 
+            // siteLoading
+            // 
+            this.siteLoading.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.siteLoading.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.siteLoading.Location = new System.Drawing.Point(0, -4);
+            this.siteLoading.Name = "siteLoading";
+            this.siteLoading.Size = new System.Drawing.Size(1109, 10);
+            this.siteLoading.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.siteLoading.TabIndex = 22;
             // 
             // ProfileSettings
             // 
@@ -447,7 +476,7 @@
             this.ProfileSettings.Controls.Add(this.setUsername);
             this.ProfileSettings.Controls.Add(this.setUserDP);
             this.ProfileSettings.Controls.Add(this.label9);
-            this.ProfileSettings.Location = new System.Drawing.Point(163, 13);
+            this.ProfileSettings.Location = new System.Drawing.Point(168, 13);
             this.ProfileSettings.Name = "ProfileSettings";
             this.ProfileSettings.Size = new System.Drawing.Size(416, 437);
             this.ProfileSettings.TabIndex = 28;
@@ -568,9 +597,9 @@
             // histListt
             // 
             this.histListt.HideSelection = false;
-            this.histListt.Location = new System.Drawing.Point(507, 261);
+            this.histListt.Location = new System.Drawing.Point(313, 51);
             this.histListt.Name = "histListt";
-            this.histListt.Size = new System.Drawing.Size(121, 97);
+            this.histListt.Size = new System.Drawing.Size(221, 97);
             this.histListt.TabIndex = 26;
             this.histListt.UseCompatibleStateImageBehavior = false;
             this.histListt.Visible = false;
@@ -638,6 +667,7 @@
             this.tabPage1.Size = new System.Drawing.Size(461, 144);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "History";
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // clearHistory
             // 
@@ -675,7 +705,10 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.linkLabel1);
+            this.tabPage3.Controls.Add(this.pictureBox4);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -684,26 +717,46 @@
             this.tabPage3.Text = "Other Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(15, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(118, 34);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "User Profile:";
+            // 
+            // label2
+            // 
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(15, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 35);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Side Panel:";
+            // 
             // linkLabel1
             // 
-            this.linkLabel1.Location = new System.Drawing.Point(19, 18);
+            this.linkLabel1.Location = new System.Drawing.Point(129, 68);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(217, 25);
+            this.linkLabel1.Size = new System.Drawing.Size(107, 25);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Change Profile Settings";
+            this.linkLabel1.Text = "Edit Profile";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // siteLoading
+            // pictureBox4
             // 
-            this.siteLoading.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.siteLoading.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.siteLoading.Location = new System.Drawing.Point(0, -3);
-            this.siteLoading.Name = "siteLoading";
-            this.siteLoading.Size = new System.Drawing.Size(1109, 10);
-            this.siteLoading.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.siteLoading.TabIndex = 22;
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = global::Tango_Browser.Properties.Resources.on1;
+            this.pictureBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox4.Location = new System.Drawing.Point(133, 17);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(75, 35);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 24;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click_2);
             // 
             // Profile
             // 
@@ -805,7 +858,9 @@
             // 
             this.chromiumBrowser.ActivateBrowserOnCreation = false;
             this.chromiumBrowser.Location = new System.Drawing.Point(805, 15);
+            this.chromiumBrowser.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.chromiumBrowser.Name = "chromiumBrowser";
+            this.chromiumBrowser.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.chromiumBrowser.Size = new System.Drawing.Size(41, 28);
             this.chromiumBrowser.TabIndex = 22;
             this.chromiumBrowser.FrameLoadStart += new System.EventHandler<CefSharp.FrameLoadStartEventArgs>(this.chromiumBrowser_FrameLoadStart);
@@ -814,20 +869,15 @@
             this.chromiumBrowser.AddressChanged += new System.EventHandler<CefSharp.AddressChangedEventArgs>(this.chromiumBrowser_AddressChanged);
             this.chromiumBrowser.TitleChanged += new System.EventHandler<CefSharp.TitleChangedEventArgs>(this.chromiumBrowser_TitleChanged_1);
             // 
-            // pictureBox16
+            // DPSelect
             // 
-            this.pictureBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox16.ErrorImage = global::Tango_Browser.Properties.Resources.avatar;
-            this.pictureBox16.Image = global::Tango_Browser.Properties.Resources.avatar;
-            this.pictureBox16.Location = new System.Drawing.Point(1056, 3);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox16.TabIndex = 27;
-            this.pictureBox16.TabStop = false;
-            this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
+            this.DPSelect.AddExtension = false;
+            this.DPSelect.DefaultExt = "\"jpg\"";
+            this.DPSelect.FileName = "openFileDialog1";
+            this.DPSelect.Filter = "Image|*.jpg";
+            this.DPSelect.InitialDirectory = "@\"C:\\\"";
+            this.DPSelect.RestoreDirectory = true;
+            this.DPSelect.Title = "Select Profile Picture";
             // 
             // pictureBox15
             // 
@@ -839,19 +889,6 @@
             this.pictureBox15.Size = new System.Drawing.Size(688, 36);
             this.pictureBox15.TabIndex = 25;
             this.pictureBox15.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::Tango_Browser.Properties.Resources.off;
-            this.pictureBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox4.Location = new System.Drawing.Point(972, 7);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(75, 35);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 24;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click_2);
             // 
             // Pic_pin
             // 
@@ -954,15 +991,17 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // DPSelect
+            // pictureBox17
             // 
-            this.DPSelect.AddExtension = false;
-            this.DPSelect.DefaultExt = "\"jpg\"";
-            this.DPSelect.FileName = "openFileDialog1";
-            this.DPSelect.Filter = "Image|*.jpg";
-            this.DPSelect.InitialDirectory = "@\"C:\\\"";
-            this.DPSelect.RestoreDirectory = true;
-            this.DPSelect.Title = "Select Profile Picture";
+            this.pictureBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox17.Image = global::Tango_Browser.Properties.Resources.Darkoff;
+            this.pictureBox17.Location = new System.Drawing.Point(973, 6);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(74, 38);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox17.TabIndex = 28;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
             // 
             // Main_Tab
             // 
@@ -970,10 +1009,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Tango_Browser.Properties.Settings.Default.FormBackGround;
             this.ClientSize = new System.Drawing.Size(1108, 882);
-            this.Controls.Add(this.pictureBox16);
+            this.Controls.Add(this.pictureBox14);
+            this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.Address_textBox);
             this.Controls.Add(this.pictureBox15);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Pic_pin);
             this.Controls.Add(this.Pic_load);
@@ -997,8 +1036,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -1007,6 +1046,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ProfileSettings.ResumeLayout(false);
             this.ProfileSettings.PerformLayout();
@@ -1016,13 +1056,12 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.Profile.ResumeLayout(false);
             this.Profile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfileUserDP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_pin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_load)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_home)).EndInit();
@@ -1030,6 +1069,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pic_back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1103,5 +1143,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.OpenFileDialog DPSelect;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox17;
     }
 }
