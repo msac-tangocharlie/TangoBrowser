@@ -799,6 +799,7 @@
             this.incogBrowse.FrameLoadEnd += new System.EventHandler<CefSharp.FrameLoadEndEventArgs>(this.incogBrowse_FrameLoadEnd);
             this.incogBrowse.LoadingStateChanged += new System.EventHandler<CefSharp.LoadingStateChangedEventArgs>(this.incogBrowse_LoadingStateChanged);
             this.incogBrowse.AddressChanged += new System.EventHandler<CefSharp.AddressChangedEventArgs>(this.incogBrowse_AddressChanged);
+            this.incogBrowse.TitleChanged += new System.EventHandler<CefSharp.TitleChangedEventArgs>(this.incogBrowse_TitleChanged);
             // 
             // chromiumBrowser
             // 
