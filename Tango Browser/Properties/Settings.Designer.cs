@@ -73,7 +73,7 @@ namespace Tango_Browser.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("/Resources/avatar.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("../../Resources/avatar.png")]
         public string UserDP {
             get {
                 return ((string)(this["UserDP"]));
