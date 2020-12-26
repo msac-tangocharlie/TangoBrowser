@@ -325,27 +325,23 @@ namespace Tango_Browser
             if (Text != e.Title)
             {
                 Text = e.Title;
-                if (Text != "about:blank")
+                if (Text != "file:///F:/MSAC/TangoBrowser/Tango%20Browser/index.html")
                 {
                     IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
                     var hist = db.GetCollection<BsonDocument>("History");
                     var doc = new BsonDocument
                     {
                         {"url", chromiumBrowser.Address},
-                        { "user_id","1"}
+                        { "user_id","1"},
+                        { "date",DateTime.Now}
                     };
                     hist.InsertOne(doc);
-                    doc = new BsonDocument
-                    {
-                        {"url", ""},
-                        { "user_id","1"}
-                    };
-                    hist.InsertOne(doc);
+                    Properties.Settings.Default.Charlie = Properties.Settings.Default.Charlie + 0.05;
+                    Properties.Settings.Default.Save();
+                    charlieValue.Text = Math.Round(Properties.Settings.Default.Charlie, 2).ToString();
                 }
             }
-            Properties.Settings.Default.Charlie = Properties.Settings.Default.Charlie + 0.05;
-            Properties.Settings.Default.Save();
-            charlieValue.Text = Math.Round( Properties.Settings.Default.Charlie,2).ToString();
+         
         }
 
         private void chromiumBrowser_AddressChanged(object sender, AddressChangedEventArgs e)
@@ -353,7 +349,7 @@ namespace Tango_Browser
             Invoke(new Action(() => Address_textBox.Text = e.Address));
             Pic_pin.Image = Resources.pin;
             pinned = false;
-            if (e.Address != "about.blank" && !faviconLoaded)
+            if (e.Address != "file:///F:/MSAC/TangoBrowser/Tango%20Browser/index.html" && !faviconLoaded)
             {
                 Uri uri = new Uri(e.Address);
 
@@ -408,10 +404,9 @@ namespace Tango_Browser
         private void incogBrowse_AddressChanged(object sender, AddressChangedEventArgs e)
         {
             Invoke(new Action(() => Address_textBox.Text = e.Address));
-            Console.WriteLine("Reached here");
             Pic_pin.Image = Resources.pin;
             pinned = false;
-            if (e.Address != "about.blank" && !faviconLoaded)
+            if (e.Address != "file:///F:/MSAC/TangoBrowser/Tango%20Browser/index.html" && !faviconLoaded)
             {
                 Uri uri = new Uri(e.Address);
 
@@ -476,9 +471,11 @@ namespace Tango_Browser
                 String script1 = "var elements = document.getElementsByTagName('*'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = '#a6a6a6';}";
                 String script2 = "var elements = document.getElementsByTagName('a'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = 'green';}";
                 String script3 = "document.body.style.backgroundColor='#222';";
+                /*String script4 = "var elements = document.querySelectorAll('*'); for (var i = 0; i < elements.length; i++) {if(elements[i].style.backgroundColor = 'rgb(255, 255, 255'){element[i].style.backgroundColor='red';}}";*/
                 e.Frame.ExecuteJavaScriptAsync(script1);
                 e.Frame.ExecuteJavaScriptAsync(script2);
                 e.Frame.ExecuteJavaScriptAsync(script3);
+                /*e.Frame.ExecuteJavaScriptAsync(script4);*/
             }
             siteLoading.Value = 100;
             Address_textBox.Text = incogBrowse.Address;
@@ -550,13 +547,14 @@ namespace Tango_Browser
         }
      
         int ischrome;
-        
+        bool isHist =false;
         private void pictureBox9_Click(object sender, EventArgs e)
         {
 
 
-            if (!(panel2.Contains(histListt)))
+            if (!isHist)
             {
+                isHist = true;
                 histListt.Visible = true;
                 Address_textBox.Text = "History";
                 histListt.Items.Clear();
@@ -566,11 +564,21 @@ namespace Tango_Browser
                 IMongoDatabase db = dbClient.GetDatabase("TangoBrowser");
                 var hist = db.GetCollection<BsonDocument>("History");
                 var filter = Builders<BsonDocument>.Filter.Eq("user_id", "1");
-                var doc = hist.Find(filter).ToList();
-                
+                var doc = hist.Find(filter).Sort("{_id: -1}").ToList();
+
+                var tempdate = "0";
                 foreach (BsonDocument docu in doc)
                 {
-                    histListt.Items.Add("Date: \t"+ docu.GetValue("url").ToString());
+                    var tempdate2 = docu.GetValue("date").ToString().Substring(0,10);
+                    if (tempdate != tempdate2)
+                    {
+                        
+                        histListt.Items.Add("");
+                        tempdate = tempdate2;
+                        histListt.Items.Add(tempdate);
+                    }
+                    histListt.Items.Add(docu.GetValue("url").ToString());
+                    
                 }
                 if (panel2.Contains(incogBrowse))
                 {
@@ -594,6 +602,7 @@ namespace Tango_Browser
             }
             else
             {
+                isHist = false;
                 panel2.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
                 panel2.Controls.Remove(histListt);
                 if (ischrome != 1)
@@ -655,7 +664,7 @@ namespace Tango_Browser
                 settingBox.Visible = true;
         }
         /*ListView pinnedList = new ListView();*/
-        
+
         
         private void pictureBox12_Click(object sender, EventArgs e)
         {

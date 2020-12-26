@@ -269,7 +269,7 @@
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Location = new System.Drawing.Point(0, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(69, 896);
+            this.panel1.Size = new System.Drawing.Size(69, 941);
             this.panel1.TabIndex = 18;
             // 
             // pictureBox11
@@ -370,7 +370,7 @@
             this.downPercent.AutoSize = true;
             this.downPercent.ForeColor = System.Drawing.Color.Black;
             this.downPercent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.downPercent.Location = new System.Drawing.Point(18, 630);
+            this.downPercent.Location = new System.Drawing.Point(16, 630);
             this.downPercent.Name = "downPercent";
             this.downPercent.Size = new System.Drawing.Size(30, 17);
             this.downPercent.TabIndex = 27;
@@ -383,7 +383,7 @@
             this.pictureBox7.BackgroundImage = global::Tango_Browser.Properties.Resources.downloadIn;
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox7.Location = new System.Drawing.Point(16, 654);
+            this.pictureBox7.Location = new System.Drawing.Point(14, 654);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(36, 194);
             this.pictureBox7.TabIndex = 22;
@@ -396,7 +396,7 @@
             this.pictureBox5.BackgroundImage = global::Tango_Browser.Properties.Resources.downloadOut;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox5.Location = new System.Drawing.Point(14, 650);
+            this.pictureBox5.Location = new System.Drawing.Point(12, 651);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(40, 200);
             this.pictureBox5.TabIndex = 26;
@@ -449,7 +449,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 48);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1109, 866);
+            this.panel2.Size = new System.Drawing.Size(1109, 878);
             this.panel2.TabIndex = 19;
             // 
             // siteLoading
@@ -1008,7 +1008,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Tango_Browser.Properties.Settings.Default.FormBackGround;
-            this.ClientSize = new System.Drawing.Size(1108, 882);
+            this.ClientSize = new System.Drawing.Size(1108, 927);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.Address_textBox);
