@@ -163,6 +163,26 @@ namespace Tango_Browser.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Darkoff {
+            get {
+                object obj = ResourceManager.GetObject("Darkoff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Darkon {
+            get {
+                object obj = ResourceManager.GetObject("Darkon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DefaultIcon {
             get {
                 object obj = ResourceManager.GetObject("DefaultIcon", resourceCulture);
