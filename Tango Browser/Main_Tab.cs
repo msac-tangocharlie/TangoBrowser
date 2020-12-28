@@ -11,7 +11,7 @@ using System.IO;
 using System.Net;
 using Tango_Browser.Properties;
 using CefSharp.Example.Handlers;
-
+using System.Diagnostics;
 
 namespace Tango_Browser
 {
@@ -301,16 +301,18 @@ namespace Tango_Browser
             var filter = Builders<BsonDocument>.Filter.Eq("url", Address_textBox.Text);
             if (pinif.CountDocuments(filter) != 0)
             {
-                Pic_pin.Image = Resources.pinned;
-                pinned = true;
-            }
-           
+            Pic_pin.Image = Resources.pinned;
+            pinned = true;
+             }
 
+            timer1.Stop();
+            this.label4.Text = timer1.ToString();
+            //Console.WriteLine(timer1[1]);
         }
 
         async private void chromiumBrowser_FrameLoadStart(object sender, FrameLoadStartEventArgs e)
         {
-           
+            timer1.Start();
            
 
             Pic_load.Image = Resources.cancel;
@@ -394,7 +396,6 @@ namespace Tango_Browser
                         /*Invoke(new Action(() => Icon = Resources.DefaultIcon));*/
                     }
                 }
-
                 Invoke(new Action(() => Parent.Refresh()));
                 faviconLoaded = true;
             }
@@ -885,6 +886,20 @@ namespace Tango_Browser
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label4_TextChanged(object sender, PaintEventArgs e)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Address_textBox.Text);
+
+            System.Diagnostics.Stopwatch timer = new Stopwatch();
+            timer.Start();
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            timer.Stop();
+
+            TimeSpan timeTaken = timer.Elapsed;
         }
     }
 }
