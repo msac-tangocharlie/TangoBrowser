@@ -54,6 +54,7 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.histListt = new System.Windows.Forms.ListView();
             this.siteLoading = new System.Windows.Forms.ProgressBar();
             this.ProfileSettings = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this.setUsername = new System.Windows.Forms.LinkLabel();
             this.setUserDP = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.histListt = new System.Windows.Forms.ListView();
             this.pinnedList = new System.Windows.Forms.ListView();
             this.settingBox = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -443,7 +443,6 @@
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.siteLoading);
             this.panel2.Controls.Add(this.ProfileSettings);
-            this.panel2.Controls.Add(this.histListt);
             this.panel2.Controls.Add(this.pinnedList);
             this.panel2.Controls.Add(this.settingBox);
             this.panel2.Controls.Add(this.findbox);
@@ -455,6 +454,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1109, 878);
             this.panel2.TabIndex = 19;
+            // 
+            // histListt
+            // 
+            this.histListt.HideSelection = false;
+            this.histListt.Location = new System.Drawing.Point(128, 89);
+            this.histListt.Name = "histListt";
+            this.histListt.Size = new System.Drawing.Size(329, 156);
+            this.histListt.TabIndex = 26;
+            this.histListt.UseCompatibleStateImageBehavior = false;
+            this.histListt.Visible = false;
+            this.histListt.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.histListt_ItemSelectionChanged);
             // 
             // siteLoading
             // 
@@ -469,6 +479,7 @@
             // 
             // ProfileSettings
             // 
+            this.ProfileSettings.Controls.Add(this.histListt);
             this.ProfileSettings.Controls.Add(this.button3);
             this.ProfileSettings.Controls.Add(this.button4);
             this.ProfileSettings.Controls.Add(this.UserEmailText);
@@ -598,6 +609,7 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "User Full Name:";
             // 
+
             // histListt
             // 
             this.histListt.HideSelection = false;
@@ -610,6 +622,7 @@
             this.histListt.Visible = false;
             this.histListt.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.histListt_ItemSelectionChanged);
             // 
+
             // pinnedList
             // 
             this.pinnedList.ForeColor = System.Drawing.Color.Black;
@@ -765,14 +778,13 @@
             // 
             // Profile
             // 
-            this.Profile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Profile.Controls.Add(this.editProfile);
             this.Profile.Controls.Add(this.charlieValue);
             this.Profile.Controls.Add(this.UserEmail);
             this.Profile.Controls.Add(this.label1);
             this.Profile.Controls.Add(this.ProfileUserDP);
             this.Profile.Controls.Add(this.UserName);
-            this.Profile.Location = new System.Drawing.Point(730, 8);
+            this.Profile.Location = new System.Drawing.Point(77, 12);
             this.Profile.Name = "Profile";
             this.Profile.Size = new System.Drawing.Size(375, 184);
             this.Profile.TabIndex = 27;

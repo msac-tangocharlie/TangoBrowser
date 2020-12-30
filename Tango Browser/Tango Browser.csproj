@@ -264,12 +264,6 @@
     <Compile Include="MyPopupHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Starred.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Starred.Designer.cs">
-      <DependentUpon>Starred.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AppContainer.resx">
       <DependentUpon>AppContainer.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,9 +283,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Starred.resx">
-      <DependentUpon>Starred.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

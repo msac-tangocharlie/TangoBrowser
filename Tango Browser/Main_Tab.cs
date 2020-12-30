@@ -18,6 +18,7 @@ namespace Tango_Browser
     public partial class Main_Tab : Form
     {
         MongoClient dbClient = new MongoClient("mongodb://localhost:27017/");
+        
         //String homepageUrl = "System.IO.Path.GetFullPath("index.html")";
 
 
@@ -284,13 +285,15 @@ namespace Tango_Browser
             {}*/
             if (Properties.Settings.Default.isDark)
             {
-                String script1 = "var elements = document.getElementsByTagName('*'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = '#a6a6a6';}";
+                String script1 = "var elements = document.getElementsByTagName('*'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = '#a6a6a6';  }";
                 String script2 = "var elements = document.getElementsByTagName('a'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = 'green';}";
-
+                /*String script3 = "var elements = document.getElementsByTagName('*'); for (var i = 0; i < elements.length; i++) {elements[i].style.backgroundColor = '#222';}";*/
                 String script3 = "document.body.style.backgroundColor='#222';";
                 e.Frame.ExecuteJavaScriptAsync(script1);
                 e.Frame.ExecuteJavaScriptAsync(script2);
                 e.Frame.ExecuteJavaScriptAsync(script3);
+                Timer time;
+                
             }
 
             siteLoading.Value = 100;
@@ -324,6 +327,7 @@ namespace Tango_Browser
 
         private void chromiumBrowser_TitleChanged_1(object sender, TitleChangedEventArgs e)
         {
+            
             if (Text != e.Title)
             {
                 Text = e.Title;
@@ -573,12 +577,12 @@ namespace Tango_Browser
                     var tempdate2 = docu.GetValue("date").ToString().Substring(0,10);
                     if (tempdate != tempdate2)
                     {
-                        
                         histListt.Items.Add("");
                         tempdate = tempdate2;
                         histListt.Items.Add(tempdate);
+                        
                     }
-                    histListt.Items.Add(docu.GetValue("url").ToString());
+                    histListt.Items.Add(docu.GetValue("date").ToString().Substring(11, 5)+"      "+docu.GetValue("url").ToString());
                     
                 }
                 if (panel2.Contains(incogBrowse))
@@ -587,7 +591,7 @@ namespace Tango_Browser
                     panel2.Controls.Remove(incogBrowse);
                     panel2.Controls.Add(histListt);
                 }
-                if (panel2.Controls.Contains(chromiumBrowser))
+                if (panel2.Contains(chromiumBrowser))
                 {
                     ischrome = 0;
                     panel2.Controls.Remove(chromiumBrowser);
@@ -736,13 +740,15 @@ namespace Tango_Browser
         {
             if (ischrome != 1)
             {
-                chromiumBrowser.Load(e.Item.Text);
+                
+                chromiumBrowser.Load(e.Item.Text.Substring(11));
                 panel2.Controls.Remove(pinnedList);
                 panel2.Controls.Add(chromiumBrowser);
             }
             else
             {
-                incogBrowse.Load(e.Item.Text);
+                
+                incogBrowse.Load(e.Item.Text.Substring(11));
                 panel2.Controls.Remove(pinnedList);
                 panel2.Controls.Add(incogBrowse);
             }
@@ -751,16 +757,17 @@ namespace Tango_Browser
 
         private void histListt_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-
+            isHist = false;
             if (ischrome != 1)
             {
-                chromiumBrowser.Load(e.Item.Text);
+                Console.WriteLine(e.Item.Text.Substring(11));
+                chromiumBrowser.Load(e.Item.Text.Substring(11));
                 panel2.Controls.Remove(histListt);
                 panel2.Controls.Add(chromiumBrowser);
             }
             else
             {
-                incogBrowse.Load(e.Item.Text);
+                incogBrowse.Load(e.Item.Text.Substring(12));
                 panel2.Controls.Remove(histListt);
                 panel2.Controls.Add(incogBrowse);
             }
@@ -887,7 +894,6 @@ namespace Tango_Browser
         {
 
         }
-
         private void label4_TextChanged(object sender, PaintEventArgs e)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Address_textBox.Text);
@@ -898,8 +904,9 @@ namespace Tango_Browser
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             timer.Stop();
-
+            
             TimeSpan timeTaken = timer.Elapsed;
         }
+
     }
 }
