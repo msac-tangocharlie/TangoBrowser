@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Tab));
             this.Address_textBox = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -99,6 +100,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
             this.findbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -146,7 +149,7 @@
             this.Address_textBox.Location = new System.Drawing.Point(209, 13);
             this.Address_textBox.Margin = new System.Windows.Forms.Padding(0);
             this.Address_textBox.Name = "Address_textBox";
-            this.Address_textBox.Size = new System.Drawing.Size(683, 31);
+            this.Address_textBox.Size = new System.Drawing.Size(683, 37);
             this.Address_textBox.TabIndex = 6;
             this.Address_textBox.Click += new System.EventHandler(this.Address_textBox_Click);
             this.Address_textBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Address_textBox_KeyDown);
@@ -213,7 +216,7 @@
             this.find_label.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.find_label.Location = new System.Drawing.Point(17, 33);
             this.find_label.Name = "find_label";
-            this.find_label.Size = new System.Drawing.Size(69, 25);
+            this.find_label.Size = new System.Drawing.Size(80, 29);
             this.find_label.TabIndex = 2;
             this.find_label.Text = "Value:";
             // 
@@ -233,7 +236,7 @@
             // 
             this.find_textbox.Location = new System.Drawing.Point(20, 61);
             this.find_textbox.Name = "find_textbox";
-            this.find_textbox.Size = new System.Drawing.Size(210, 30);
+            this.find_textbox.Size = new System.Drawing.Size(210, 35);
             this.find_textbox.TabIndex = 0;
             this.find_textbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.find_textbox_KeyDown);
             // 
@@ -256,6 +259,7 @@
             this.panel1.AutoScroll = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.GhostWhite;
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox11);
             this.panel1.Controls.Add(this.pictureBox16);
             this.panel1.Controls.Add(this.pictureBox13);
@@ -372,7 +376,7 @@
             this.downPercent.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.downPercent.Location = new System.Drawing.Point(16, 630);
             this.downPercent.Name = "downPercent";
-            this.downPercent.Size = new System.Drawing.Size(30, 17);
+            this.downPercent.Size = new System.Drawing.Size(34, 20);
             this.downPercent.TabIndex = 27;
             this.downPercent.Text = "File";
             this.downPercent.Visible = false;
@@ -521,14 +525,14 @@
             // 
             this.UserEmailText.Location = new System.Drawing.Point(141, 328);
             this.UserEmailText.Name = "UserEmailText";
-            this.UserEmailText.Size = new System.Drawing.Size(247, 30);
+            this.UserEmailText.Size = new System.Drawing.Size(247, 35);
             this.UserEmailText.TabIndex = 5;
             // 
             // UsernameText
             // 
             this.UsernameText.Location = new System.Drawing.Point(141, 291);
             this.UsernameText.Name = "UsernameText";
-            this.UsernameText.Size = new System.Drawing.Size(248, 30);
+            this.UsernameText.Size = new System.Drawing.Size(248, 35);
             this.UsernameText.TabIndex = 4;
             // 
             // label5
@@ -538,7 +542,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(34, 258);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 18);
+            this.label5.Size = new System.Drawing.Size(127, 22);
             this.label5.TabIndex = 3;
             this.label5.Text = "Profile PIcture:";
             // 
@@ -560,7 +564,7 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(89, 333);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 18);
+            this.label7.Size = new System.Drawing.Size(59, 22);
             this.label7.TabIndex = 2;
             this.label7.Text = "Email:";
             // 
@@ -569,7 +573,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(154, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(142, 25);
+            this.label8.Size = new System.Drawing.Size(176, 29);
             this.label8.TabIndex = 1;
             this.label8.Text = "Profile Settings";
             // 
@@ -601,10 +605,24 @@
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(24, 294);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(115, 18);
+            this.label9.Size = new System.Drawing.Size(139, 22);
             this.label9.TabIndex = 0;
             this.label9.Text = "User Full Name:";
             // 
+
+            // histListt
+            // 
+            this.histListt.HideSelection = false;
+            this.histListt.Location = new System.Drawing.Point(313, 51);
+            this.histListt.Name = "histListt";
+            this.histListt.Size = new System.Drawing.Size(221, 83);
+            this.histListt.TabIndex = 26;
+            this.histListt.UseCompatibleStateImageBehavior = false;
+            this.histListt.View = System.Windows.Forms.View.Details;
+            this.histListt.Visible = false;
+            this.histListt.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.histListt_ItemSelectionChanged);
+            // 
+
             // pinnedList
             // 
             this.pinnedList.ForeColor = System.Drawing.Color.Black;
@@ -661,10 +679,10 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.clearHistory);
-            this.tabPage1.Location = new System.Drawing.Point(4, 34);
+            this.tabPage1.Location = new System.Drawing.Point(4, 38);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(461, 144);
+            this.tabPage1.Size = new System.Drawing.Size(461, 140);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "History";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
@@ -684,10 +702,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.linkLabel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Location = new System.Drawing.Point(4, 38);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(461, 144);
+            this.tabPage2.Size = new System.Drawing.Size(461, 140);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pinned Pages";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -709,10 +727,10 @@
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.linkLabel1);
             this.tabPage3.Controls.Add(this.pictureBox4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 34);
+            this.tabPage3.Location = new System.Drawing.Point(4, 38);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(461, 144);
+            this.tabPage3.Size = new System.Drawing.Size(461, 140);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Other Settings";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -792,7 +810,7 @@
             this.charlieValue.ForeColor = System.Drawing.Color.Maroon;
             this.charlieValue.Location = new System.Drawing.Point(232, 119);
             this.charlieValue.Name = "charlieValue";
-            this.charlieValue.Size = new System.Drawing.Size(23, 25);
+            this.charlieValue.Size = new System.Drawing.Size(26, 29);
             this.charlieValue.TabIndex = 4;
             this.charlieValue.Text = "0";
             // 
@@ -803,7 +821,7 @@
             this.UserEmail.ForeColor = System.Drawing.Color.Gray;
             this.UserEmail.Location = new System.Drawing.Point(151, 83);
             this.UserEmail.Name = "UserEmail";
-            this.UserEmail.Size = new System.Drawing.Size(67, 17);
+            this.UserEmail.Size = new System.Drawing.Size(77, 20);
             this.UserEmail.TabIndex = 3;
             this.UserEmail.Text = "Set Email";
             // 
@@ -813,7 +831,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(148, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 25);
+            this.label1.Size = new System.Drawing.Size(108, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Charlies:";
             // 
@@ -1002,9 +1020,21 @@
             this.pictureBox17.TabStop = false;
             this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoEllipsis = true;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(10, 477);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 23);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Time";
+            this.label4.UseCompatibleTextRendering = true;
+            // 
             // Main_Tab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Tango_Browser.Properties.Settings.Default.FormBackGround;
             this.ClientSize = new System.Drawing.Size(1108, 927);
@@ -1145,5 +1175,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label4;
     }
 }
