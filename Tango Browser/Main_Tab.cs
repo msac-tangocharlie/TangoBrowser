@@ -25,6 +25,21 @@ namespace Tango_Browser
         public Main_Tab()
         {
             InitializeComponent();
+
+            
+            /*WebClient webClient = new WebClient();
+            if (!webClient.DownloadString("link here").Contains("V 1.0"))
+            {
+                if (MessageBox.Show("Looks like there is an available update, would you like to download it ?", "program name here", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start("link here");
+                }
+                else
+                {
+                    MessageBox.Show("You are on the latest version", "TangoCharlie");
+                }
+            }*/
+            
             
             if (Properties.Settings.Default.isPanelOn)
             {
