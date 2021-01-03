@@ -18,18 +18,34 @@ namespace Tango_Browser
     public partial class Main_Tab : Form
     {
         MongoClient dbClient = new MongoClient("mongodb://localhost:27017/");
-        
-        //String homepageUrl = "System.IO.Path.GetFullPath("index.html")";
 
+        //String homepageUrl = "System.IO.Path.GetFullPath("index.html")";
+        
 
         public Main_Tab()
         {
             InitializeComponent();
+
+            
+            /*WebClient webClient = new WebClient();
+            if (!webClient.DownloadString("link here").Contains("V 1.0"))
+            {
+                if (MessageBox.Show("Looks like there is an available update, would you like to download it ?", "program name here", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start("link here");
+                }
+                else
+                {
+                    MessageBox.Show("You are on the latest version", "TangoCharlie");
+                }
+            }*/
+            
+            
             if (Properties.Settings.Default.isPanelOn)
             {
                 pictureBox4.Image = Resources.on1;
                 panel1.Visible = true;
-                panel2.Padding = new Padding(70, 0, 0, 0);
+                panel2.Padding = new Padding(60, 0, 0, 0);
             }
             else
             {
@@ -49,7 +65,7 @@ namespace Tango_Browser
             this.setUserDP.Image = Image.FromFile(Properties.Settings.Default.UserDP);
             this.pictureBox16.Image = Image.FromFile(Properties.Settings.Default.UserDP);
 
-
+            
             RequestContextSettings req = new RequestContextSettings();
             req.CachePath = "";
             req.PersistSessionCookies = false;
@@ -266,34 +282,25 @@ namespace Tango_Browser
                 if (val <= 100) siteLoading.Value = val;
             }
         }
-
-        async private void chromiumBrowser_FrameLoadEnd_1(object sender, FrameLoadEndEventArgs e)
+        Stopwatch siteLoad = new Stopwatch();
+        private void chromiumBrowser_FrameLoadEnd_1(object sender, FrameLoadEndEventArgs e)
         {
-
-
-
-
-
-            /*Console.WriteLine("cef-" + e.Url);
-
-            if (e.Frame.IsMain)
-            {
-                string HTML = await e.Frame.GetSourceAsync();
-                Console.WriteLine(HTML);
-            }*/
-            /*if (isExten)
-            {}*/
+            /*var colorBack = Properties.Settings.Default.FormBackGround.Name.Substring(2);*/
+            
+            siteLoad.Stop();
+            TimeSpan timeTaken = siteLoad.Elapsed;
+            label4.Text = timeTaken.ToString().Substring(6,5)+"s";
+            Console.WriteLine(label4.Text);
             if (Properties.Settings.Default.isDark)
             {
                 String script1 = "var elements = document.getElementsByTagName('*'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = '#a6a6a6';  }";
                 String script2 = "var elements = document.getElementsByTagName('a'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = 'green';}";
                 /*String script3 = "var elements = document.getElementsByTagName('*'); for (var i = 0; i < elements.length; i++) {elements[i].style.backgroundColor = '#222';}";*/
                 String script3 = "document.body.style.backgroundColor='#222';";
+                /*String script3 = "document.body.style.backgroundColor='#"+colorBack+"';";*/
                 e.Frame.ExecuteJavaScriptAsync(script1);
                 e.Frame.ExecuteJavaScriptAsync(script2);
                 e.Frame.ExecuteJavaScriptAsync(script3);
-                Timer time;
-                
             }
 
             siteLoading.Value = 100;
@@ -308,16 +315,13 @@ namespace Tango_Browser
             pinned = true;
              }
 
-            timer1.Stop();
-            this.label4.Text = timer1.ToString();
-            //Console.WriteLine(timer1[1]);
+           
         }
 
-        async private void chromiumBrowser_FrameLoadStart(object sender, FrameLoadStartEventArgs e)
+        private void chromiumBrowser_FrameLoadStart(object sender, FrameLoadStartEventArgs e)
         {
-            timer1.Start();
-           
-
+            
+            siteLoad.Restart();
             Pic_load.Image = Resources.cancel;
             siteLoading.Value = 40;
             Properties.Settings.Default.Charlie = Properties.Settings.Default.Charlie + 1;
@@ -473,6 +477,7 @@ namespace Tango_Browser
         {
             if (Properties.Settings.Default.isDark)
             {
+                
                 String script1 = "var elements = document.getElementsByTagName('*'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = '#a6a6a6';}";
                 String script2 = "var elements = document.getElementsByTagName('a'); for (var i = 0; i < elements.length; i++) {elements[i].style.color = 'green';}";
                 String script3 = "document.body.style.backgroundColor='#222';";
@@ -889,24 +894,5 @@ namespace Tango_Browser
                 }
             }
         }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label4_TextChanged(object sender, PaintEventArgs e)
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Address_textBox.Text);
-
-            System.Diagnostics.Stopwatch timer = new Stopwatch();
-            timer.Start();
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            timer.Stop();
-            
-            TimeSpan timeTaken = timer.Elapsed;
-        }
-
     }
 }
