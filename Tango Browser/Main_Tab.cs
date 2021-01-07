@@ -894,5 +894,10 @@ namespace Tango_Browser
                 }
             }
         }
+
+        private void pinnedList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
