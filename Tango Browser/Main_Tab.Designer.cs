@@ -144,10 +144,10 @@
             this.Address_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(244)))));
             this.Address_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Address_textBox.Font = new System.Drawing.Font("Calibri", 15F);
-            this.Address_textBox.Location = new System.Drawing.Point(186, 10);
+            this.Address_textBox.Location = new System.Drawing.Point(186, 9);
             this.Address_textBox.Margin = new System.Windows.Forms.Padding(0);
             this.Address_textBox.Name = "Address_textBox";
-            this.Address_textBox.Size = new System.Drawing.Size(607, 31);
+            this.Address_textBox.Size = new System.Drawing.Size(540, 31);
             this.Address_textBox.TabIndex = 6;
             this.Address_textBox.Click += new System.EventHandler(this.Address_textBox_Click);
             this.Address_textBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Address_textBox_KeyDown);
@@ -265,7 +265,6 @@
             this.panel1.AutoScroll = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.Color.GhostWhite;
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox11);
             this.panel1.Controls.Add(this.pictureBox16);
             this.panel1.Controls.Add(this.pictureBox13);
@@ -285,11 +284,13 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoEllipsis = true;
+            this.label4.BackColor = System.Drawing.Color.LightGreen;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(9, 382);
+            this.label4.Location = new System.Drawing.Point(754, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 20);
+            this.label4.Size = new System.Drawing.Size(61, 33);
             this.label4.TabIndex = 29;
             this.label4.Text = "Time";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -471,6 +472,7 @@
             this.panel2.AutoScroll = true;
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.histListt);
             this.panel2.Controls.Add(this.siteLoading);
             this.panel2.Controls.Add(this.ProfileSettings);
             this.panel2.Controls.Add(this.pinnedList);
@@ -479,7 +481,7 @@
             this.panel2.Controls.Add(this.Profile);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(0, 38);
+            this.panel2.Location = new System.Drawing.Point(0, 39);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(986, 702);
@@ -490,7 +492,7 @@
             this.siteLoading.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.siteLoading.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.siteLoading.Location = new System.Drawing.Point(0, -3);
+            this.siteLoading.Location = new System.Drawing.Point(0, -2);
             this.siteLoading.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.siteLoading.Name = "siteLoading";
             this.siteLoading.Size = new System.Drawing.Size(986, 8);
@@ -499,7 +501,6 @@
             // 
             // ProfileSettings
             // 
-            this.ProfileSettings.Controls.Add(this.histListt);
             this.ProfileSettings.Controls.Add(this.button3);
             this.ProfileSettings.Controls.Add(this.button4);
             this.ProfileSettings.Controls.Add(this.UserEmailText);
@@ -511,7 +512,7 @@
             this.ProfileSettings.Controls.Add(this.setUsername);
             this.ProfileSettings.Controls.Add(this.setUserDP);
             this.ProfileSettings.Controls.Add(this.label9);
-            this.ProfileSettings.Location = new System.Drawing.Point(149, 10);
+            this.ProfileSettings.Location = new System.Drawing.Point(445, 25);
             this.ProfileSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ProfileSettings.Name = "ProfileSettings";
             this.ProfileSettings.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -524,7 +525,7 @@
             // histListt
             // 
             this.histListt.HideSelection = false;
-            this.histListt.Location = new System.Drawing.Point(278, 41);
+            this.histListt.Location = new System.Drawing.Point(725, 390);
             this.histListt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.histListt.Name = "histListt";
             this.histListt.Size = new System.Drawing.Size(197, 67);
@@ -653,7 +654,7 @@
             // 
             this.pinnedList.ForeColor = System.Drawing.Color.Black;
             this.pinnedList.HideSelection = false;
-            this.pinnedList.Location = new System.Drawing.Point(208, 143);
+            this.pinnedList.Location = new System.Drawing.Point(186, 206);
             this.pinnedList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pinnedList.Name = "pinnedList";
             this.pinnedList.Size = new System.Drawing.Size(215, 169);
@@ -662,6 +663,7 @@
             this.pinnedList.View = System.Windows.Forms.View.List;
             this.pinnedList.Visible = false;
             this.pinnedList.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.pinnedList_ItemSelectionChanged);
+            this.pinnedList.SelectedIndexChanged += new System.EventHandler(this.pinnedList_SelectedIndexChanged);
             // 
             // settingBox
             // 
@@ -891,7 +893,7 @@
             this.UserName.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.UserName.Location = new System.Drawing.Point(131, 44);
             this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(136, 26);
+            this.UserName.Size = new System.Drawing.Size(187, 26);
             this.UserName.TabIndex = 0;
             this.UserName.TabStop = true;
             this.UserName.Text = "Set Name";
@@ -943,7 +945,7 @@
             this.pictureBox15.Location = new System.Drawing.Point(186, 6);
             this.pictureBox15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(612, 29);
+            this.pictureBox15.Size = new System.Drawing.Size(540, 29);
             this.pictureBox15.TabIndex = 25;
             this.pictureBox15.TabStop = false;
             // 
@@ -1035,10 +1037,10 @@
             this.pictureBox3.BackgroundImage = global::Tango_Browser.Properties.Resources.UrlBoxRight;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox3.Location = new System.Drawing.Point(796, 6);
+            this.pictureBox3.Location = new System.Drawing.Point(725, 5);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(18, 28);
+            this.pictureBox3.Size = new System.Drawing.Size(18, 34);
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 
@@ -1074,6 +1076,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::Tango_Browser.Properties.Settings.Default.FormBackGround;
             this.ClientSize = new System.Drawing.Size(985, 742);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.Address_textBox);
